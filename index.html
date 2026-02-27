@@ -610,6 +610,22 @@ footer a:hover { color: var(--glow); }
   </div>
 </section>
 
+<!-- ═══════════ PHILOSOPHY ═══════════ -->
+<section>
+  <div class="container">
+    <span class="label">Philosophy</span>
+    <h2>What AURA believes</h2>
+    <div class="principles fade-in">
+      <div class="principle"><div class="principle-num">01</div><h3>Measure deliverables, not tasks</h3><p>Tool calls are commits. Deliverables are deployments. Measure value.</p></div>
+      <div class="principle"><div class="principle-num">02</div><h3>Speed, stability, and quality correlate</h3><p>The best agents are fast, reliable, and accurate. Optimizing one at the expense of others hides deeper problems.</p></div>
+      <div class="principle"><div class="principle-num">03</div><h3>The spec is the source of truth</h3><p>Without a spec, you can't measure quality. AURA makes specs explicit.</p></div>
+      <div class="principle"><div class="principle-num">04</div><h3>Metrics drive conversations</h3><p>Not leaderboards. Not punishments. Conversations about where to improve.</p></div>
+      <div class="principle"><div class="principle-num">05</div><h3>Build on existing standards</h3><p>OTel GenAI semantic conventions. Your infrastructure already works.</p></div>
+      <div class="principle"><div class="principle-num">06</div><h3>Start simple, go deep</h3><p>Five headline metrics tell the story. Supporting metrics tell you why.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════ WHY NOT DORA ═══════════ -->
 <section>
   <div class="container" style="max-width:780px;">
@@ -749,58 +765,6 @@ footer a:hover { color: var(--glow); }
   </div>
 </section>
 
-<!-- ═══════════ SPECS ═══════════ -->
-<section id="specs">
-  <div class="container">
-    <span class="label">Bring your own spec</span>
-    <h2>Works with any spec framework</h2>
-    <p>AURA measures how well agents deliver against specs. It doesn't care how those specs are written. Use whatever fits your workflow.</p>
-
-    <div class="problem-grid fade-in" style="margin-top: 40px;">
-      <div class="problem-card" style="border-color: var(--glow-dim);">
-        <div class="num" style="color:var(--glow);">RECOMMENDED</div>
-        <h3><a href="https://github.com/Fission-AI/OpenSpec" style="color:var(--glow); text-decoration:none;">OpenSpec</a></h3>
-        <p>Spec-driven development for AI coding assistants. Each change gets a structured folder — proposal, requirements, design, tasks. AURA reads the requirements and measures conformance. The example in this repo uses OpenSpec.</p>
-      </div>
-      <div class="problem-card">
-        <div class="num">ALTERNATIVE</div>
-        <h3><a href="https://github.com/github/spec-kit" style="color:var(--text); text-decoration:none;">spec-kit</a> <span style="color:var(--text-dim); font-family:var(--mono); font-size:0.7rem;">by GitHub</span></h3>
-        <p>A thorough toolkit for spec-driven development with phase gates and structured templates. Heavier than OpenSpec, well-suited for enterprise teams that need more process.</p>
-      </div>
-      <div class="problem-card">
-        <div class="num">ALTERNATIVE</div>
-        <h3>Kiro, Linear, Jira, Notion…</h3>
-        <p>A spec doesn't need a framework. A Jira ticket with acceptance criteria, a Notion doc with requirements, or even a plain Markdown file — all work.</p>
-      </div>
-      <div class="problem-card">
-        <div class="num">THE PRINCIPLE</div>
-        <h3>More explicit spec → more useful score</h3>
-        <p>A vague prompt gives you a binary signal. A structured spec with 5 explicit requirements gives you a precise conformance gradient. AURA rewards specificity.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ ARCHITECTURE ═══════════ -->
-<section id="architecture">
-  <div class="container">
-    <span class="label">Architecture</span>
-    <h2>Built on OpenTelemetry</h2>
-    <p>AURA extends OTel's GenAI semantic conventions. Your existing infrastructure, exporters, and backends all work.</p>
-    <div class="arch-pipeline fade-in">
-      <div class="arch-step"><span class="tag you">YOUR CODE</span><span class="desc">LangChain · CrewAI · AutoGen · PydanticAI · custom</span></div>
-      <div class="arch-conn"></div>
-      <div class="arch-step"><span class="tag aura">AURA SDK</span><span class="desc">Deliverable lifecycle · Spec conformance · Failure classification · Recovery tracking</span></div>
-      <div class="arch-conn"></div>
-      <div class="arch-step"><span class="tag otel">OTEL SDK</span><span class="desc">Traces · Metrics · Events</span></div>
-      <div class="arch-conn"></div>
-      <div class="arch-step"><span class="tag otel">OTEL COLLECTOR</span><span class="desc">AURA processor · Spanmetrics · Export to any backend</span></div>
-      <div class="arch-conn"></div>
-      <div class="arch-step"><span class="tag infra">BACKEND</span><span class="desc">Grafana · Datadog · Honeycomb · Jaeger · any OTLP-compatible</span></div>
-    </div>
-  </div>
-</section>
-
 <!-- ═══════════ SPECIFICATION ═══════════ -->
 <section id="specification" class="spec-section">
   <div class="container">
@@ -827,7 +791,7 @@ footer a:hover { color: var(--glow); }
 
     <!-- ── Terminology ── -->
     <div id="spec-terminology" class="spec-block active fade-in">
-      <h3>1. Terminology</h3>
+      <h3>Terminology</h3>
       <dl class="spec-dl">
         <dt>Deliverable</dt>
         <dd>A unit of agent work verified against a specification. One deliverable = one measurable outcome. Examples: a feature implementation, a bug fix, a refactoring task.</dd>
@@ -844,7 +808,7 @@ footer a:hover { color: var(--glow); }
 
     <!-- ── Metrics ── -->
     <div id="spec-metrics" class="spec-block fade-in">
-      <h3>2. The Five Metrics</h3>
+      <h3>The Five Metrics</h3>
 
       <h4>2.1 Feature Throughput</h4>
       <p>The number of deliverables accepted per unit time.</p>
@@ -927,7 +891,7 @@ footer a:hover { color: var(--glow); }
 
     <!-- ── Lifecycle ── -->
     <div id="spec-lifecycle" class="spec-block fade-in">
-      <h3>3. Deliverable Lifecycle</h3>
+      <h3>Deliverable Lifecycle</h3>
       <p>A deliverable progresses through phases. Not all phases are required — a minimal deliverable has: start → apply → archive. Phases can repeat (apply → verify → apply → verify → archive).</p>
       <div class="spec-lifecycle">
         <span class="phase">propose</span><span class="arrow">→</span>
@@ -968,7 +932,7 @@ footer a:hover { color: var(--glow); }
 
     <!-- ── Failures ── -->
     <div id="spec-failures" class="spec-block fade-in">
-      <h3>4. Failure Taxonomy</h3>
+      <h3>Failure Taxonomy</h3>
       <p>When a deliverable fails, it should be classified by failure type:</p>
       <table class="spec-table">
         <thead><tr><th>Failure Type</th><th>Description</th></tr></thead>
@@ -986,7 +950,7 @@ footer a:hover { color: var(--glow); }
 
     <!-- ── Data Model ── -->
     <div id="spec-data-model" class="spec-block fade-in">
-      <h3>5. Data Model</h3>
+      <h3>Data Model</h3>
       <p>AURA defines three JSON Schema documents (JSON Schema draft 2020-12).</p>
 
       <div class="spec-tabs">
@@ -1092,7 +1056,7 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
 
     <!-- ── OpenTelemetry ── -->
     <div id="spec-otel" class="spec-block fade-in">
-      <h3>6. OpenTelemetry Integration</h3>
+      <h3>OpenTelemetry Integration</h3>
       <p>AURA extends OTel GenAI semantic conventions with the <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">aura.*</code> namespace. All attributes use this prefix to avoid collision with existing OTel conventions.</p>
 
       <h4>Span Hierarchy</h4>
@@ -1153,7 +1117,7 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
 
     <!-- ── Compatibility ── -->
     <div id="spec-compatibility" class="spec-block fade-in">
-      <h3>7. Spec Framework Compatibility</h3>
+      <h3>Spec Framework Compatibility</h3>
       <p>AURA is spec-framework agnostic. Any system that defines acceptance criteria for agent work can be an AURA spec source.</p>
       <table class="spec-table">
         <thead><tr><th>Source</th><th>Spec =</th><th>Requirements =</th><th>Deliverable Boundary</th></tr></thead>
@@ -1170,7 +1134,7 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
     <!-- ── Tiers ── -->
     <!-- ── Supporting Metrics ── -->
     <div id="spec-supporting" class="spec-block fade-in">
-      <h3>8. Supporting Metrics</h3>
+      <h3>Supporting Metrics</h3>
       <p>The five headline metrics tell you <em>what's happening</em>. The supporting metrics tell you <em>why</em>. Every supporting metric feeds at least one headline metric — when a headline goes red, you drill into the supporting metrics to find the cause.</p>
 
       <div class="spec-supporting-card">
@@ -1246,7 +1210,7 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
 
     <!-- ── Tiers ── -->
     <div id="spec-tiers" class="spec-block fade-in">
-      <h3>9. Performance Tiers</h3>
+      <h3>Performance Tiers</h3>
       <p>Summary of all performance tiers across the five metrics. Tier classification uses the most recent rolling window — recommended default is 7 days or 20 deliverables, whichever comes first.</p>
       <table class="spec-table">
         <thead><tr><th>Metric</th><th class="hl">Elite</th><th>High</th><th>Medium</th><th>Low</th></tr></thead>
@@ -1263,18 +1227,54 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
   </div>
 </section>
 
-<!-- ═══════════ PHILOSOPHY ═══════════ -->
-<section>
+<!-- ═══════════ SPECS ═══════════ -->
+<section id="specs">
   <div class="container">
-    <span class="label">Philosophy</span>
-    <h2>What AURA believes</h2>
-    <div class="principles fade-in">
-      <div class="principle"><div class="principle-num">01</div><h3>Measure deliverables, not tasks</h3><p>Tool calls are commits. Deliverables are deployments. Measure value.</p></div>
-      <div class="principle"><div class="principle-num">02</div><h3>Speed, stability, and quality correlate</h3><p>The best agents are fast, reliable, and accurate. Optimizing one at the expense of others hides deeper problems.</p></div>
-      <div class="principle"><div class="principle-num">03</div><h3>The spec is the source of truth</h3><p>Without a spec, you can't measure quality. AURA makes specs explicit.</p></div>
-      <div class="principle"><div class="principle-num">04</div><h3>Metrics drive conversations</h3><p>Not leaderboards. Not punishments. Conversations about where to improve.</p></div>
-      <div class="principle"><div class="principle-num">05</div><h3>Build on existing standards</h3><p>OTel GenAI semantic conventions. Your infrastructure already works.</p></div>
-      <div class="principle"><div class="principle-num">06</div><h3>Start simple, go deep</h3><p>Five headline metrics tell the story. Supporting metrics tell you why.</p></div>
+    <span class="label">Bring your own spec</span>
+    <h2>Works with any spec framework</h2>
+    <p>AURA measures how well agents deliver against specs. It doesn't care how those specs are written. Use whatever fits your workflow.</p>
+
+    <div class="problem-grid fade-in" style="margin-top: 40px;">
+      <div class="problem-card" style="border-color: var(--glow-dim);">
+        <div class="num" style="color:var(--glow);">RECOMMENDED</div>
+        <h3><a href="https://github.com/Fission-AI/OpenSpec" style="color:var(--glow); text-decoration:none;">OpenSpec</a></h3>
+        <p>Spec-driven development for AI coding assistants. Each change gets a structured folder — proposal, requirements, design, tasks. AURA reads the requirements and measures conformance. The example in this repo uses OpenSpec.</p>
+      </div>
+      <div class="problem-card">
+        <div class="num">ALTERNATIVE</div>
+        <h3><a href="https://github.com/github/spec-kit" style="color:var(--text); text-decoration:none;">spec-kit</a> <span style="color:var(--text-dim); font-family:var(--mono); font-size:0.7rem;">by GitHub</span></h3>
+        <p>A thorough toolkit for spec-driven development with phase gates and structured templates. Heavier than OpenSpec, well-suited for enterprise teams that need more process.</p>
+      </div>
+      <div class="problem-card">
+        <div class="num">ALTERNATIVE</div>
+        <h3>Kiro, Linear, Jira, Notion…</h3>
+        <p>A spec doesn't need a framework. A Jira ticket with acceptance criteria, a Notion doc with requirements, or even a plain Markdown file — all work.</p>
+      </div>
+      <div class="problem-card">
+        <div class="num">THE PRINCIPLE</div>
+        <h3>More explicit spec → more useful score</h3>
+        <p>A vague prompt gives you a binary signal. A structured spec with 5 explicit requirements gives you a precise conformance gradient. AURA rewards specificity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ARCHITECTURE ═══════════ -->
+<section id="architecture">
+  <div class="container">
+    <span class="label">Architecture</span>
+    <h2>Built on OpenTelemetry</h2>
+    <p>AURA extends OTel's GenAI semantic conventions. Your existing infrastructure, exporters, and backends all work.</p>
+    <div class="arch-pipeline fade-in">
+      <div class="arch-step"><span class="tag you">YOUR CODE</span><span class="desc">LangChain · CrewAI · AutoGen · PydanticAI · custom</span></div>
+      <div class="arch-conn"></div>
+      <div class="arch-step"><span class="tag aura">AURA SDK</span><span class="desc">Deliverable lifecycle · Spec conformance · Failure classification · Recovery tracking</span></div>
+      <div class="arch-conn"></div>
+      <div class="arch-step"><span class="tag otel">OTEL SDK</span><span class="desc">Traces · Metrics · Events</span></div>
+      <div class="arch-conn"></div>
+      <div class="arch-step"><span class="tag otel">OTEL COLLECTOR</span><span class="desc">AURA processor · Spanmetrics · Export to any backend</span></div>
+      <div class="arch-conn"></div>
+      <div class="arch-step"><span class="tag infra">BACKEND</span><span class="desc">Grafana · Datadog · Honeycomb · Jaeger · any OTLP-compatible</span></div>
     </div>
   </div>
 </section>
