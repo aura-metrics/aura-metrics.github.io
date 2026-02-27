@@ -386,6 +386,28 @@ footer a:hover { color: var(--glow); }
 .spec-tab.active { color: var(--glow); border-bottom-color: var(--glow); }
 .spec-tab-content { display: none; padding-top: 20px; }
 .spec-tab-content.active { display: block; }
+.spec-supporting-card {
+  background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 8px;
+  padding: 24px 28px; margin-bottom: 20px;
+}
+.spec-supporting-card h4 {
+  font-family: var(--mono); font-size: 0.95rem; color: var(--text); margin: 0 0 6px;
+}
+.spec-supporting-card .feeds {
+  font-family: var(--mono); font-size: 0.68rem; color: var(--glow-dim);
+  letter-spacing: 0.04em; margin-bottom: 12px;
+}
+.spec-supporting-card p { margin-bottom: 8px; }
+.spec-supporting-card p:last-child { margin-bottom: 0; }
+.spec-relationship-map {
+  background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 8px;
+  padding: 28px 32px; margin: 24px 0; overflow-x: auto;
+  font-family: var(--mono); font-size: 0.78rem; line-height: 1.8; white-space: pre;
+}
+.spec-relationship-map .supporting { color: var(--warm); }
+.spec-relationship-map .arrow { color: var(--text-dim); }
+.spec-relationship-map .headline { color: var(--glow); }
+.spec-relationship-map .connector { color: var(--text-dim); }
 
 /* ── Animations ── */
 .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -406,6 +428,8 @@ footer a:hover { color: var(--glow); }
   .spec-lifecycle { font-size: 0.75rem; }
   .spec-nav { gap: 6px; }
   .spec-nav a { font-size: 0.65rem; padding: 5px 10px; }
+  .spec-supporting-card { padding: 18px 20px; }
+  .spec-relationship-map { font-size: 0.65rem; padding: 18px 16px; }
 }
 </style>
 </head>
@@ -707,6 +731,7 @@ footer a:hover { color: var(--glow); }
       <a href="#spec-failures">Failures</a>
       <a href="#spec-data-model">Data Model</a>
       <a href="#spec-otel">OpenTelemetry</a>
+      <a href="#spec-supporting">Supporting Metrics</a>
       <a href="#spec-compatibility">Compatibility</a>
       <a href="#spec-tiers">Tiers</a>
     </nav>
@@ -1054,8 +1079,85 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
     </div>
 
     <!-- ── Tiers ── -->
+    <!-- ── Supporting Metrics ── -->
+    <div id="spec-supporting" class="spec-block fade-in">
+      <h3>8. Supporting Metrics</h3>
+      <p>The five headline metrics tell you <em>what's happening</em>. The supporting metrics tell you <em>why</em>. Every supporting metric feeds at least one headline metric — when a headline goes red, you drill into the supporting metrics to find the cause.</p>
+
+      <div class="spec-supporting-card">
+        <h4>Token Usage</h4>
+        <div class="feeds">Feeds → Recovery Efficiency, Feature Throughput</div>
+        <p>Total input tokens, output tokens, cost per deliverable. If an agent uses 50k tokens on a deliverable that should take 10k, the extra 40k is recovery overhead. It also contextualises Feature Throughput — are you shipping more because the agent is efficient, or because it's brute-forcing with expensive models? Token cost per deliverable is the unit economics metric teams will care about most once they're past the "does it work" phase.</p>
+      </div>
+
+      <div class="spec-supporting-card">
+        <h4>Tool Call Count</h4>
+        <div class="feeds">Feeds → Recovery Efficiency, Resolution Latency</div>
+        <p>Counts by type: Write, Edit, Bash, Read, etc. A healthy deliverable has a predictable ratio of reads to writes. If you see 40 Read calls and 2 Writes, the agent spent most of its time searching. If you see 15 Write calls and 12 Edit calls on the same files, it's rewriting its own work. The pattern tells you where the agent is struggling.</p>
+      </div>
+
+      <div class="spec-supporting-card">
+        <h4>Phase Duration</h4>
+        <div class="feeds">Feeds → Resolution Latency</div>
+        <p>Time spent in each phase: propose, specs, design, tasks, apply, verify. This decomposes Resolution Latency into its parts. A 4-hour deliverable where 3.5 hours was in <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">apply</code> is very different from one where 2 hours was human review during <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">verify</code>. This is where you find the bottleneck — is the agent slow, or is the human slow to review?</p>
+      </div>
+
+      <div class="spec-supporting-card">
+        <h4>Apply Iterations</h4>
+        <div class="feeds">Feeds → Spec Conformance, Recovery Efficiency</div>
+        <p>How many times the apply phase ran before acceptance. The most direct indicator feeding Spec Conformance and Recovery Efficiency. First-time-right deliverables score higher on conformance (via the iteration penalty) and have zero recovery overhead. Tracking the count over time tells you if your agent is getting better or worse.</p>
+      </div>
+
+      <div class="spec-supporting-card">
+        <h4>Recovery Attempts</h4>
+        <div class="feeds">Feeds → Recovery Efficiency</div>
+        <p>Count of rework cycles within an apply iteration — different from apply iterations. An apply iteration is "the agent stopped, human said try again." A recovery attempt is "the agent hit an error and self-corrected within a single run." High recovery attempts with eventual success means the agent is resilient but inefficient. High recovery attempts with failure means it's thrashing.</p>
+      </div>
+
+      <div class="spec-supporting-card">
+        <h4>Tasks Completed vs Total</h4>
+        <div class="feeds">Feeds → Spec Conformance</div>
+        <p>From the spec's task checklist. The raw input to the functional completeness dimension of Spec Conformance. Useful on its own as a progress metric during execution — it answers "how far did the agent get" for both in-progress and failed deliverables.</p>
+      </div>
+
+      <div class="spec-supporting-card">
+        <h4>Failure Type Distribution</h4>
+        <div class="feeds">Feeds → Deliverable Failure Rate</div>
+        <p>Breakdown across: spec_misunderstanding, hallucination, infinite_loop, tool_failure, constraint_violation, incomplete, regression. Categorises <em>why</em> deliverables fail, which the Deliverable Failure Rate alone can't tell you. A 12% failure rate means very different things if it's all tool failures (infrastructure problem) versus all hallucinations (model problem). This is the metric that tells you where to invest.</p>
+      </div>
+
+      <div class="spec-supporting-card">
+        <h4>Human Intervention Count</h4>
+        <div class="feeds">Feeds → Recovery Efficiency, Spec Conformance</div>
+        <p>Times a human had to step in during execution. An agent that completes every deliverable but needs 5 human nudges per run isn't really autonomous. This metric tracks the journey toward full autonomy.</p>
+      </div>
+
+      <div class="spec-supporting-card">
+        <h4>Complexity Distribution</h4>
+        <div class="feeds">Feeds → Feature Throughput, Resolution Latency</div>
+        <p>Trivial/simple/moderate/complex breakdown of deliverables. Contextualises Feature Throughput and Resolution Latency. Shipping 10 trivial deliverables/day is not the same as shipping 2 complex ones. Without this, you can game throughput by splitting work into tiny pieces.</p>
+      </div>
+
+      <h4>The Relationship Map</h4>
+      <p>Every supporting metric feeds at least one headline metric, and most feed two. Look at the five headlines on a dashboard — when one goes red, drill into the supporting metrics to find the cause.</p>
+      <div class="spec-relationship-map"><span class="supporting">Token Usage</span> <span class="connector">──────────┐</span>
+<span class="supporting">Tool Call Count</span> <span class="connector">──────┼──→</span> <span class="headline">Recovery Efficiency</span>
+<span class="supporting">Recovery Attempts</span> <span class="connector">────┘</span>
+                           <span class="connector">↕</span>
+<span class="supporting">Phase Duration</span> <span class="connector">───────────→</span> <span class="headline">Resolution Latency</span>
+                           <span class="connector">↕</span>
+<span class="supporting">Apply Iterations</span> <span class="connector">─────┐</span>
+<span class="supporting">Tasks Completed</span> <span class="connector">──────┼──→</span> <span class="headline">Spec Conformance</span>
+<span class="supporting">Human Interventions</span> <span class="connector">──┘</span>
+                           <span class="connector">↕</span>
+<span class="supporting">Failure Type</span> <span class="connector">─────────────→</span> <span class="headline">Deliverable Failure Rate</span>
+                           <span class="connector">↕</span>
+<span class="supporting">Complexity Distribution</span> <span class="connector">──→</span> <span class="headline">Feature Throughput</span></div>
+    </div>
+
+    <!-- ── Tiers ── -->
     <div id="spec-tiers" class="spec-block fade-in">
-      <h3>8. Performance Tiers</h3>
+      <h3>9. Performance Tiers</h3>
       <p>Summary of all performance tiers across the five metrics. Tier classification uses the most recent rolling window — recommended default is 7 days or 20 deliverables, whichever comes first.</p>
       <table class="spec-table">
         <thead><tr><th>Metric</th><th class="hl">Elite</th><th>High</th><th>Medium</th><th>Low</th></tr></thead>
