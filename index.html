@@ -1227,6 +1227,19 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
   </div>
 </section>
 
+<!-- ═══════════ IMPLEMENTATION ═══════════ -->
+<section id="implementation">
+  <div class="container">
+    <span class="label">Get started</span>
+    <h2>Start measuring in minutes</h2>
+    <p>AURA is an open specification built on OpenTelemetry. Read the spec, pick a plugin for your agent framework, and start seeing your five metrics.</p>
+    <div style="margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap;">
+      <a href="https://github.com/aura-metrics/aura-metrics-specification" class="btn btn-primary">View on GitHub →</a>
+      <a href="#specification" class="btn btn-ghost">Read the spec</a>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════ ARCHITECTURE ═══════════ -->
 <section id="architecture">
   <div class="container">
@@ -1250,7 +1263,7 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
 <!-- ═══════════ SPECS ═══════════ -->
 <section id="specs">
   <div class="container">
-    <span class="label">Bring your own agent</span>
+    <span class="label">Bring your own spec framework</span>
     <h2>Works with any spec framework</h2>
     <p>AURA measures how well agents deliver against specs. It doesn't care how those specs are written. Use whatever fits your workflow.</p>
 
@@ -1279,15 +1292,13 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
   </div>
 </section>
 
-<!-- ═══════════ IMPLEMENTATION ═══════════ -->
-<section id="implementation">
+<!-- ═══════════ PLUGINS ═══════════ -->
+<section id="plugins">
   <div class="container">
-    <span class="label">Implementation</span>
-    <h2>Put AURA to work</h2>
+    <span class="label">Bring your own agent</span>
+    <h2>Plugins</h2>
     <p>Integrate AURA into your agent toolchain using one of the available plugins.</p>
-
-    <h3 style="font-family:var(--mono);font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dim);margin-top:56px;margin-bottom:0;">Plugins</h3>
-    <div class="plugins-grid">
+    <div class="plugins-grid" style="margin-top: 40px;">
       <div class="plugin-card">
         <div class="plugin-card-label">Plugin</div>
         <h3>Claude Code</h3>
