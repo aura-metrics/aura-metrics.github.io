@@ -81,7 +81,9 @@ nav .logo {
   color: var(--text); text-decoration: none;
 }
 nav .logo span { color: var(--glow); }
-nav .nav-links { display: flex; gap: 28px; list-style: none; position: absolute; left: 50%; transform: translateX(-50%); }
+nav .nav-links { display: flex; gap: 0; list-style: none; position: absolute; left: 50%; transform: translateX(-50%); align-items: center; }
+nav .nav-links li { display: flex; align-items: center; }
+nav .nav-links li + li::before { content: '|'; color: var(--border); padding: 0 16px; }
 nav .nav-links a {
   font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim);
   text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s;
@@ -309,6 +311,16 @@ h1 .glow {
 .cta-section p { margin: 0 auto 40px; text-align: center; }
 .cta-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
 
+/* ── Implementation ── */
+.plugins-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1px; background: var(--border-subtle); border-radius: 14px; overflow: hidden; margin-top: 48px; }
+.plugin-card { background: var(--bg-card); padding: 36px 32px; transition: background 0.2s; }
+.plugin-card:hover { background: var(--bg-card-hover); }
+.plugin-card-label { font-family: var(--mono); font-size: 0.62rem; color: var(--text-dim); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 14px; }
+.plugin-card h3 { font-family: var(--serif); font-size: 1.4rem; color: var(--text); margin-bottom: 10px; }
+.plugin-card p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.55; margin-bottom: 24px; }
+.plugin-card a.plugin-link { font-family: var(--mono); font-size: 0.72rem; color: var(--glow); text-decoration: none; letter-spacing: 0.05em; transition: opacity 0.2s; display: inline-flex; align-items: center; gap: 6px; }
+.plugin-card a.plugin-link:hover { opacity: 0.75; }
+
 /* ── Footer ── */
 footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; text-align: center; }
 footer p { font-size: 0.85rem; color: var(--text-dim); margin: 0 auto; }
@@ -515,6 +527,7 @@ footer a:hover { color: var(--glow); }
     <li><a href="#problem">The Problem</a></li>
     <li><a href="#metrics">The 5 Metrics</a></li>
     <li><a href="#specification">Specification</a></li>
+    <li><a href="#implementation">Implementation</a></li>
     <li><a href="#origin">Origin</a></li>
   </ul>
   <a href="https://github.com/aura-metrics/" class="nav-github" target="_blank" rel="noopener">
@@ -1262,6 +1275,28 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
       <div class="principle"><div class="principle-num">04</div><h3>Metrics drive conversations</h3><p>Not leaderboards. Not punishments. Conversations about where to improve.</p></div>
       <div class="principle"><div class="principle-num">05</div><h3>Build on existing standards</h3><p>OTel GenAI semantic conventions. Your infrastructure already works.</p></div>
       <div class="principle"><div class="principle-num">06</div><h3>Start simple, go deep</h3><p>Five headline metrics tell the story. Supporting metrics tell you why.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ IMPLEMENTATION ═══════════ -->
+<section id="implementation">
+  <div class="container">
+    <span class="label">Implementation</span>
+    <h2>Put AURA to work</h2>
+    <p>Integrate AURA into your agent toolchain using one of the available plugins.</p>
+
+    <h3 style="font-family:var(--mono);font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dim);margin-top:56px;margin-bottom:0;">Plugins</h3>
+    <div class="plugins-grid">
+      <div class="plugin-card">
+        <div class="plugin-card-label">Plugin</div>
+        <h3>Claude Code</h3>
+        <p>Instruments Claude Code agent sessions with AURA metrics. Tracks deliverables, phases, and tool calls automatically via Claude Code hooks, emitting OpenTelemetry spans to your collector.</p>
+        <a href="https://github.com/aura-metrics/aura-metrics-claude-code-plugin" class="plugin-link" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          aura-metrics-claude-code-plugin →
+        </a>
+      </div>
     </div>
   </div>
 </section>
