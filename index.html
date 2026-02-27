@@ -308,6 +308,107 @@ footer p { font-size: 0.85rem; color: var(--text-dim); margin: 0 auto; }
 footer a { color: var(--text-muted); text-decoration: none; }
 footer a:hover { color: var(--glow); }
 
+/* ── Specification ── */
+.spec-section { background: var(--bg-raised); }
+.spec-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 32px 0 48px; }
+.spec-nav a {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim);
+  text-decoration: none; padding: 6px 14px; border: 1px solid var(--border-subtle);
+  border-radius: 4px; transition: all 0.2s;
+}
+.spec-nav a:hover, .spec-nav a.active { color: var(--glow); border-color: var(--glow-dim); }
+.spec-block { margin-bottom: 64px; }
+.spec-block:last-child { margin-bottom: 0; }
+.spec-block h3 { font-size: 1.6rem; color: var(--text); margin-bottom: 20px; }
+.spec-block h4 { font-family: var(--sans); font-size: 1.05rem; font-weight: 500; color: var(--text); margin: 28px 0 12px; }
+.spec-block p { margin-bottom: 12px; }
+.spec-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 20px 0; }
+.spec-table th {
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-dim); text-align: left;
+  padding: 12px 16px; border-bottom: 1px solid var(--border); background: var(--bg-card);
+}
+.spec-table td {
+  padding: 10px 16px; border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-muted); vertical-align: top; font-weight: 300; line-height: 1.5;
+}
+.spec-table tr td:first-child { color: var(--text); font-weight: 400; font-family: var(--mono); font-size: 0.82rem; }
+.spec-table .hl { color: var(--glow); }
+.spec-code {
+  background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 8px;
+  padding: 20px 24px; margin: 16px 0 20px; overflow-x: auto;
+  font-family: var(--mono); font-size: 0.78rem; line-height: 1.7; color: var(--text-muted);
+  white-space: pre;
+}
+.spec-code .key { color: var(--glow); }
+.spec-code .str { color: var(--warm); }
+.spec-code .num { color: var(--blue); }
+.spec-code .bool { color: var(--red); }
+.spec-code .null-val { color: var(--text-dim); }
+.spec-formula {
+  background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 6px;
+  padding: 14px 20px; margin: 12px 0 16px;
+  font-family: var(--mono); font-size: 0.82rem; color: var(--glow); display: inline-block;
+}
+.spec-dl { margin: 16px 0; }
+.spec-dl dt {
+  font-family: var(--mono); font-size: 0.85rem; color: var(--text);
+  margin-top: 16px; margin-bottom: 4px;
+}
+.spec-dl dd { color: var(--text-dim); font-size: 0.92rem; padding-left: 16px; border-left: 2px solid var(--border-subtle); }
+.spec-lifecycle {
+  background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 8px;
+  padding: 24px 28px; margin: 16px 0;
+  font-family: var(--mono); font-size: 0.85rem; color: var(--text-muted);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px; justify-content: center;
+}
+.spec-lifecycle .phase {
+  padding: 6px 14px; border-radius: 4px; background: rgba(74,222,128,0.08);
+  color: var(--glow); border: 1px solid rgba(74,222,128,0.15);
+}
+.spec-lifecycle .arrow { color: var(--text-dim); }
+.spec-badge {
+  display: inline-block; padding: 3px 10px; border-radius: 3px;
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em;
+}
+.spec-badge.elite { background: rgba(74,222,128,0.10); color: var(--glow); }
+.spec-badge.draft { background: rgba(255,214,160,0.10); color: var(--warm); }
+.spec-version-info {
+  display: flex; gap: 16px; align-items: center; margin-top: 8px;
+}
+.spec-tabs { display: flex; gap: 0; margin: 20px 0 0; border-bottom: 1px solid var(--border-subtle); }
+.spec-tab {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim);
+  padding: 10px 20px; cursor: pointer; border-bottom: 2px solid transparent;
+  transition: all 0.2s; background: none; border-top: none; border-left: none; border-right: none;
+}
+.spec-tab:hover { color: var(--text-muted); }
+.spec-tab.active { color: var(--glow); border-bottom-color: var(--glow); }
+.spec-tab-content { display: none; padding-top: 20px; }
+.spec-tab-content.active { display: block; }
+.spec-supporting-card {
+  background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 8px;
+  padding: 24px 28px; margin-bottom: 20px;
+}
+.spec-supporting-card h4 {
+  font-family: var(--mono); font-size: 0.95rem; color: var(--text); margin: 0 0 6px;
+}
+.spec-supporting-card .feeds {
+  font-family: var(--mono); font-size: 0.68rem; color: var(--glow-dim);
+  letter-spacing: 0.04em; margin-bottom: 12px;
+}
+.spec-supporting-card p { margin-bottom: 8px; }
+.spec-supporting-card p:last-child { margin-bottom: 0; }
+.spec-relationship-map {
+  background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 8px;
+  padding: 28px 32px; margin: 24px 0; overflow-x: auto;
+  font-family: var(--mono); font-size: 0.78rem; line-height: 1.8; white-space: pre;
+}
+.spec-relationship-map .supporting { color: var(--warm); }
+.spec-relationship-map .arrow { color: var(--text-dim); }
+.spec-relationship-map .headline { color: var(--glow); }
+.spec-relationship-map .connector { color: var(--text-dim); }
+
 /* ── Animations ── */
 .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
@@ -321,6 +422,14 @@ footer a:hover { color: var(--glow); }
   .insight-box { padding: 28px; }
   nav .nav-links { display: none; }
   .hero { padding: 100px 0 60px; min-height: auto; }
+  .spec-table { font-size: 0.8rem; }
+  .spec-table th, .spec-table td { padding: 8px 10px; }
+  .spec-code { font-size: 0.72rem; padding: 14px 16px; }
+  .spec-lifecycle { font-size: 0.75rem; }
+  .spec-nav { gap: 6px; }
+  .spec-nav a { font-size: 0.65rem; padding: 5px 10px; }
+  .spec-supporting-card { padding: 18px 20px; }
+  .spec-relationship-map { font-size: 0.65rem; padding: 18px 16px; }
 }
 </style>
 </head>
@@ -333,6 +442,7 @@ footer a:hover { color: var(--glow); }
     <li><a href="#metrics">Metrics</a></li>
     <li><a href="#specs">Specs</a></li>
     <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#specification">Specification</a></li>
     <li><a href="#start">Get Started</a></li>
   </ul>
 </nav>
@@ -602,6 +712,468 @@ footer a:hover { color: var(--glow); }
   </div>
 </section>
 
+<!-- ═══════════ SPECIFICATION ═══════════ -->
+<section id="specification" class="spec-section">
+  <div class="container">
+    <span class="label">Full Specification</span>
+    <h2>AURA Specification <span style="font-family:var(--mono);font-size:0.9rem;color:var(--glow-dim);">v0.1.0</span></h2>
+    <div class="spec-version-info">
+      <span class="spec-badge draft">DRAFT</span>
+      <span style="font-family:var(--mono);font-size:0.72rem;color:var(--text-dim);">Apache 2.0</span>
+      <a href="https://github.com/aura-metrics/aura-metrics-specification" style="font-family:var(--mono);font-size:0.72rem;color:var(--glow-dim);text-decoration:none;">GitHub →</a>
+    </div>
+    <p style="margin-top:20px;">AURA (Agent Understanding, Reliability, and Accountability) is a metrics framework that measures the reliability and quality of AI agent output. Like DORA measures software delivery performance through four key metrics, AURA measures agent performance through five: Feature Throughput, Resolution Latency, Deliverable Failure Rate, Recovery Efficiency, and Spec Conformance.</p>
+
+    <nav class="spec-nav">
+      <a href="#spec-terminology">Terminology</a>
+      <a href="#spec-metrics">Metrics</a>
+      <a href="#spec-lifecycle">Lifecycle</a>
+      <a href="#spec-failures">Failures</a>
+      <a href="#spec-data-model">Data Model</a>
+      <a href="#spec-otel">OpenTelemetry</a>
+      <a href="#spec-supporting">Supporting Metrics</a>
+      <a href="#spec-compatibility">Compatibility</a>
+      <a href="#spec-tiers">Tiers</a>
+    </nav>
+
+    <!-- ── Terminology ── -->
+    <div id="spec-terminology" class="spec-block fade-in">
+      <h3>1. Terminology</h3>
+      <dl class="spec-dl">
+        <dt>Deliverable</dt>
+        <dd>A unit of agent work verified against a specification. One deliverable = one measurable outcome. Examples: a feature implementation, a bug fix, a refactoring task.</dd>
+        <dt>Spec</dt>
+        <dd>The acceptance criteria for a deliverable. Can come from any source — an OpenSpec change folder, a Jira ticket, a markdown file, a plain text prompt. The spec defines what "done" means.</dd>
+        <dt>Phase</dt>
+        <dd>A stage in the deliverable lifecycle. The canonical phases are: <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">propose</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">specs</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">design</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">tasks</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">apply</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">verify</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">archive</code>. Not all phases are required for every deliverable.</dd>
+        <dt>Conformance</dt>
+        <dd>The degree to which a deliverable meets its spec, scored 0–1. A conformance score captures quality beyond binary pass/fail.</dd>
+        <dt>Recovery</dt>
+        <dd>A rework cycle triggered by a failure during execution. When verification fails and the agent retries, that retry is a recovery attempt.</dd>
+      </dl>
+    </div>
+
+    <!-- ── Metrics ── -->
+    <div id="spec-metrics" class="spec-block fade-in">
+      <h3>2. The Five Metrics</h3>
+
+      <h4>2.1 Feature Throughput</h4>
+      <p>The number of deliverables accepted per unit time.</p>
+      <div class="spec-formula">count(deliverables where status = "accepted") / time_period</div>
+      <table class="spec-table">
+        <thead><tr><th>Tier</th><th>Threshold</th></tr></thead>
+        <tbody>
+          <tr><td class="hl">Elite</td><td>≥3/day</td></tr>
+          <tr><td>High</td><td>≥1/day</td></tr>
+          <tr><td>Medium</td><td>≥1/week</td></tr>
+          <tr><td>Low</td><td>&lt;1/week</td></tr>
+        </tbody>
+      </table>
+
+      <h4>2.2 Resolution Latency</h4>
+      <p>Wall-clock time from spec received to deliverable accepted. Includes planning, execution, and verification.</p>
+      <div class="spec-formula">accepted_at - started_at</div>
+      <table class="spec-table">
+        <thead><tr><th>Tier</th><th>Threshold</th></tr></thead>
+        <tbody>
+          <tr><td class="hl">Elite</td><td>&lt;1 hour (3,600s)</td></tr>
+          <tr><td>High</td><td>&lt;4 hours (14,400s)</td></tr>
+          <tr><td>Medium</td><td>&lt;1 day (86,400s)</td></tr>
+          <tr><td>Low</td><td>≥1 day</td></tr>
+        </tbody>
+      </table>
+      <p>Includes human review time. To isolate agent time, subtract human wait phases from the total.</p>
+
+      <h4>2.3 Deliverable Failure Rate</h4>
+      <p>Percentage of deliverables that fail spec conformance.</p>
+      <div class="spec-formula">count(failed) / count(deliverables) × 100</div>
+      <table class="spec-table">
+        <thead><tr><th>Tier</th><th>Threshold</th></tr></thead>
+        <tbody>
+          <tr><td class="hl">Elite</td><td>&lt;5%</td></tr>
+          <tr><td>High</td><td>&lt;10%</td></tr>
+          <tr><td>Medium</td><td>&lt;15%</td></tr>
+          <tr><td>Low</td><td>≥15%</td></tr>
+        </tbody>
+      </table>
+      <p>A deliverable that required recovery but eventually passed is NOT failed. Only deliverables abandoned or accepted below the conformance threshold are failed.</p>
+
+      <h4>2.4 Recovery Efficiency</h4>
+      <p>The proportion of total effort spent on rework and retries.</p>
+      <div class="spec-formula">recovery_time / total_time × 100</div>
+      <table class="spec-table">
+        <thead><tr><th>Tier</th><th>Threshold</th></tr></thead>
+        <tbody>
+          <tr><td class="hl">Elite</td><td>&lt;5%</td></tr>
+          <tr><td>High</td><td>&lt;10%</td></tr>
+          <tr><td>Medium</td><td>&lt;20%</td></tr>
+          <tr><td>Low</td><td>≥20%</td></tr>
+        </tbody>
+      </table>
+
+      <h4>2.5 Spec Conformance</h4>
+      <p>A weighted quality score measuring how well an accepted deliverable matches its spec.</p>
+      <div class="spec-formula">(0.4 × functional) + (0.3 × correctness) + (0.2 × constraints) + (0.1 × iteration_penalty)</div>
+      <table class="spec-table">
+        <thead><tr><th>Tier</th><th>Threshold</th></tr></thead>
+        <tbody>
+          <tr><td class="hl">Elite</td><td>≥0.95</td></tr>
+          <tr><td>High</td><td>≥0.85</td></tr>
+          <tr><td>Medium</td><td>≥0.70</td></tr>
+          <tr><td>Low</td><td>&lt;0.70</td></tr>
+        </tbody>
+      </table>
+
+      <h4>2.5.1 Conformance Dimensions</h4>
+      <table class="spec-table">
+        <thead><tr><th>Dimension</th><th>Weight</th><th>Calculation</th></tr></thead>
+        <tbody>
+          <tr><td>Functional Completeness</td><td>0.4</td><td style="color:var(--text-muted)">completed_requirements / total_requirements</td></tr>
+          <tr><td>Correctness</td><td>0.3</td><td style="color:var(--text-muted)">Binary or scored by validation</td></tr>
+          <tr><td>Constraint Adherence</td><td>0.2</td><td style="color:var(--text-muted)">1.0 - (0.1 × constraint_violations), floor 0.0</td></tr>
+          <tr><td>Iteration Penalty</td><td>0.1</td><td style="color:var(--text-muted)">max(0, 1.0 - (0.15 × (iterations - 1)))</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ── Lifecycle ── -->
+    <div id="spec-lifecycle" class="spec-block fade-in">
+      <h3>3. Deliverable Lifecycle</h3>
+      <p>A deliverable progresses through phases. Not all phases are required — a minimal deliverable has: start → apply → archive. Phases can repeat (apply → verify → apply → verify → archive).</p>
+      <div class="spec-lifecycle">
+        <span class="phase">propose</span><span class="arrow">→</span>
+        <span class="phase">specs</span><span class="arrow">→</span>
+        <span class="phase">design</span><span class="arrow">→</span>
+        <span class="phase">tasks</span><span class="arrow">→</span>
+        <span class="phase">apply</span><span class="arrow">→</span>
+        <span class="phase">verify</span><span class="arrow">→</span>
+        <span class="phase">archive</span>
+      </div>
+
+      <h4>Phase Definitions</h4>
+      <table class="spec-table">
+        <thead><tr><th>Phase</th><th>Description</th><th>Data Captured</th></tr></thead>
+        <tbody>
+          <tr><td>propose</td><td style="color:var(--text-muted)">Deliverable is identified and scoped</td><td style="color:var(--text-dim)">Start timestamp, deliverable ID, description</td></tr>
+          <tr><td>specs</td><td style="color:var(--text-muted)">Requirements and acceptance criteria defined</td><td style="color:var(--text-dim)">Start/end timestamps, requirements count</td></tr>
+          <tr><td>design</td><td style="color:var(--text-muted)">Solution approach is planned</td><td style="color:var(--text-dim)">Start/end timestamps, design artifacts</td></tr>
+          <tr><td>tasks</td><td style="color:var(--text-muted)">Work is broken into discrete tasks</td><td style="color:var(--text-dim)">Start/end timestamps, task count</td></tr>
+          <tr><td>apply</td><td style="color:var(--text-muted)">Agent executes the work</td><td style="color:var(--text-dim)">Start/end timestamps, tool calls, files changed</td></tr>
+          <tr><td>verify</td><td style="color:var(--text-muted)">Output is validated against the spec</td><td style="color:var(--text-dim)">Start/end timestamps, test results, conformance</td></tr>
+          <tr><td>archive</td><td style="color:var(--text-muted)">Deliverable is finalized and recorded</td><td style="color:var(--text-dim)">End timestamp, final metrics</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Deliverable States</h4>
+      <table class="spec-table">
+        <thead><tr><th>State</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>planning</td><td style="color:var(--text-muted)">In propose, specs, design, or tasks phase</td></tr>
+          <tr><td>executing</td><td style="color:var(--text-muted)">In apply phase</td></tr>
+          <tr><td>verifying</td><td style="color:var(--text-muted)">In verify phase</td></tr>
+          <tr><td>completed</td><td style="color:var(--text-muted)">Archived successfully</td></tr>
+          <tr><td>failed</td><td style="color:var(--text-muted)">Abandoned or below conformance threshold</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ── Failures ── -->
+    <div id="spec-failures" class="spec-block fade-in">
+      <h3>4. Failure Taxonomy</h3>
+      <p>When a deliverable fails, it should be classified by failure type:</p>
+      <table class="spec-table">
+        <thead><tr><th>Failure Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>spec_misunderstanding</td><td style="color:var(--text-muted)">Agent misinterpreted requirements</td></tr>
+          <tr><td>hallucination</td><td style="color:var(--text-muted)">Agent produced fabricated output</td></tr>
+          <tr><td>infinite_loop</td><td style="color:var(--text-muted)">Agent got stuck in a retry cycle</td></tr>
+          <tr><td>tool_failure</td><td style="color:var(--text-muted)">External tool returned an error the agent couldn't recover from</td></tr>
+          <tr><td>constraint_violation</td><td style="color:var(--text-muted)">Output exceeded specified boundaries</td></tr>
+          <tr><td>incomplete</td><td style="color:var(--text-muted)">Agent stopped before finishing all requirements</td></tr>
+          <tr><td>regression</td><td style="color:var(--text-muted)">Agent's fix broke something that previously worked</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ── Data Model ── -->
+    <div id="spec-data-model" class="spec-block fade-in">
+      <h3>5. Data Model</h3>
+      <p>AURA defines three JSON Schema documents (JSON Schema draft 2020-12).</p>
+
+      <div class="spec-tabs">
+        <button class="spec-tab active" onclick="switchTab(event, 'tab-metrics-output')">Metrics Output</button>
+        <button class="spec-tab" onclick="switchTab(event, 'tab-deliverable-state')">Deliverable State</button>
+        <button class="spec-tab" onclick="switchTab(event, 'tab-aura-event')">AURA Event</button>
+      </div>
+
+      <div id="tab-metrics-output" class="spec-tab-content active">
+        <p>The final record emitted when a deliverable is completed or failed. This is the primary AURA output format.</p>
+        <div class="spec-code">{
+  <span class="key">"schema_version"</span>: <span class="str">"0.1.0"</span>,
+  <span class="key">"change_id"</span>: <span class="str">"add-dark-mode"</span>,
+  <span class="key">"started_at"</span>: <span class="str">"2026-02-26T10:00:00Z"</span>,
+  <span class="key">"completed_at"</span>: <span class="str">"2026-02-26T10:45:00Z"</span>,
+  <span class="key">"status"</span>: <span class="str">"completed"</span>,
+  <span class="key">"description"</span>: <span class="str">"Add dark mode toggle to settings page"</span>,
+  <span class="key">"metrics"</span>: {
+    <span class="key">"resolution_latency_seconds"</span>: <span class="num">2700</span>,
+    <span class="key">"phase_durations"</span>: {
+      <span class="key">"propose"</span>: <span class="num">60</span>, <span class="key">"specs"</span>: <span class="num">120</span>, <span class="key">"design"</span>: <span class="num">180</span>,
+      <span class="key">"tasks"</span>: <span class="num">120</span>, <span class="key">"apply"</span>: <span class="num">1800</span>, <span class="key">"verify"</span>: <span class="num">300</span>
+    },
+    <span class="key">"tool_calls"</span>: { <span class="key">"file_edit"</span>: <span class="num">24</span>, <span class="key">"bash"</span>: <span class="num">15</span>, <span class="key">"total"</span>: <span class="num">87</span> },
+    <span class="key">"apply_iterations"</span>: <span class="num">2</span>,
+    <span class="key">"recovery_attempts"</span>: <span class="num">1</span>,
+    <span class="key">"tasks_completed"</span>: <span class="num">12</span>,
+    <span class="key">"tasks_total"</span>: <span class="num">12</span>,
+    <span class="key">"conformance"</span>: {
+      <span class="key">"functional"</span>: <span class="num">1.0</span>,
+      <span class="key">"correctness"</span>: <span class="num">0.95</span>,
+      <span class="key">"constraints"</span>: <span class="num">1.0</span>,
+      <span class="key">"iteration_penalty"</span>: <span class="num">0.85</span>,
+      <span class="key">"overall"</span>: <span class="num">0.97</span>
+    },
+    <span class="key">"deliverable_failed"</span>: <span class="bool">false</span>,
+    <span class="key">"failure_type"</span>: <span class="null-val">null</span>
+  },
+  <span class="key">"spec_source"</span>: {
+    <span class="key">"framework"</span>: <span class="str">"openspec"</span>,
+    <span class="key">"spec_id"</span>: <span class="str">"changes/add-dark-mode"</span>,
+    <span class="key">"requirements_count"</span>: <span class="num">8</span>
+  },
+  <span class="key">"agent"</span>: {
+    <span class="key">"name"</span>: <span class="str">"claude-code"</span>,
+    <span class="key">"model"</span>: <span class="str">"claude-sonnet-4-20250514"</span>,
+    <span class="key">"framework"</span>: <span class="str">"claude-code"</span>
+  },
+  <span class="key">"sessions"</span>: [<span class="str">"session-d4e5f6"</span>]
+}</div>
+        <p>Required fields: <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">schema_version</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">change_id</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">started_at</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">completed_at</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">status</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">metrics</code></p>
+      </div>
+
+      <div id="tab-deliverable-state" class="spec-tab-content">
+        <p>Tracks the current state of an in-progress deliverable. Updated as the agent progresses through phases.</p>
+        <div class="spec-code">{
+  <span class="key">"change_id"</span>: <span class="str">"add-search-feature"</span>,
+  <span class="key">"status"</span>: <span class="str">"executing"</span>,
+  <span class="key">"started_at"</span>: <span class="str">"2026-02-26T09:00:00Z"</span>,
+  <span class="key">"updated_at"</span>: <span class="str">"2026-02-26T09:35:00Z"</span>,
+  <span class="key">"complexity"</span>: <span class="str">"moderate"</span>,
+  <span class="key">"description"</span>: <span class="str">"Add full-text search to the product catalog"</span>,
+  <span class="key">"spec_source"</span>: {
+    <span class="key">"framework"</span>: <span class="str">"openspec"</span>,
+    <span class="key">"spec_id"</span>: <span class="str">"changes/add-search-feature"</span>,
+    <span class="key">"requirements_count"</span>: <span class="num">6</span>
+  },
+  <span class="key">"phases"</span>: {
+    <span class="key">"propose"</span>: { <span class="key">"started_at"</span>: <span class="str">"..."</span>, <span class="key">"completed_at"</span>: <span class="str">"..."</span> },
+    <span class="key">"apply"</span>:   { <span class="key">"started_at"</span>: <span class="str">"..."</span>, <span class="key">"completed_at"</span>: <span class="null-val">null</span> }
+  },
+  <span class="key">"current_phase"</span>: <span class="str">"apply"</span>,
+  <span class="key">"tasks_total"</span>: <span class="num">8</span>,
+  <span class="key">"tasks_completed"</span>: <span class="num">4</span>,
+  <span class="key">"tool_calls"</span>: { <span class="key">"file_edit"</span>: <span class="num">8</span>, <span class="key">"file_read"</span>: <span class="num">12</span>, <span class="key">"bash"</span>: <span class="num">3</span> },
+  <span class="key">"tool_calls_total"</span>: <span class="num">28</span>,
+  <span class="key">"recovery_attempts"</span>: <span class="num">0</span>,
+  <span class="key">"apply_iterations"</span>: <span class="num">1</span>
+}</div>
+        <p>Required fields: <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">change_id</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">status</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">started_at</code></p>
+      </div>
+
+      <div id="tab-aura-event" class="spec-tab-content">
+        <p>Lightweight event records for streaming and real-time collection. Emitted at phase transitions and significant moments during execution.</p>
+        <div class="spec-code">{
+  <span class="key">"event_type"</span>: <span class="str">"phase_start"</span>,
+  <span class="key">"timestamp"</span>: <span class="str">"2026-02-26T10:05:00Z"</span>,
+  <span class="key">"change_id"</span>: <span class="str">"add-dark-mode"</span>,
+  <span class="key">"phase"</span>: <span class="str">"apply"</span>,
+  <span class="key">"data"</span>: { <span class="key">"task_index"</span>: <span class="num">3</span> }
+}</div>
+        <p>Event types: <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">phase_start</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">phase_end</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">tool_call</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">recovery</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">deliverable_start</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">deliverable_end</code></p>
+        <p>Required fields: <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">event_type</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">timestamp</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">change_id</code></p>
+      </div>
+
+      <h4>Schema Validation</h4>
+      <div class="spec-code"><span style="color:var(--text-dim)"># Node</span>
+npx ajv validate -s schemas/latest/metrics-output.schema.json -d my-output.json
+
+<span style="color:var(--text-dim)"># Python</span>
+python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json</div>
+    </div>
+
+    <!-- ── OpenTelemetry ── -->
+    <div id="spec-otel" class="spec-block fade-in">
+      <h3>6. OpenTelemetry Integration</h3>
+      <p>AURA extends OTel GenAI semantic conventions with the <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">aura.*</code> namespace. All attributes use this prefix to avoid collision with existing OTel conventions.</p>
+
+      <h4>Span Hierarchy</h4>
+      <div class="spec-code">aura.deliverable <span style="color:var(--text-dim)">(root span)</span>
+├── aura.deliverable.plan
+├── aura.deliverable.execute
+│   ├── aura.task
+│   │   ├── <span style="color:var(--blue)">gen_ai.chat</span> <span style="color:var(--text-dim)">(OTel GenAI standard)</span>
+│   │   └── aura.tool.call
+│   └── aura.recovery.attempt
+├── aura.deliverable.validate
+│   ├── aura.conformance.functional
+│   ├── aura.conformance.correctness
+│   └── aura.conformance.constraints
+└── aura.deliverable.accept</div>
+
+      <h4>Semantic Attributes</h4>
+      <table class="spec-table">
+        <thead><tr><th>Attribute</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>aura.deliverable.id</td><td style="color:var(--text-muted)">string</td><td style="color:var(--text-dim)">Unique deliverable identifier</td></tr>
+          <tr><td>aura.deliverable.type</td><td style="color:var(--text-muted)">string</td><td style="color:var(--text-dim)">feature, bugfix, refactor, chore</td></tr>
+          <tr><td>aura.deliverable.status</td><td style="color:var(--text-muted)">string</td><td style="color:var(--text-dim)">planning, executing, verifying, completed, failed</td></tr>
+          <tr><td>aura.deliverable.complexity</td><td style="color:var(--text-muted)">string</td><td style="color:var(--text-dim)">trivial, simple, moderate, complex</td></tr>
+          <tr><td>aura.spec.framework</td><td style="color:var(--text-muted)">string</td><td style="color:var(--text-dim)">openspec, jira, github-issue, markdown, prompt</td></tr>
+          <tr><td>aura.spec.id</td><td style="color:var(--text-muted)">string</td><td style="color:var(--text-dim)">Spec identifier</td></tr>
+          <tr><td>aura.spec.requirements_count</td><td style="color:var(--text-muted)">int</td><td style="color:var(--text-dim)">Number of requirements extracted</td></tr>
+          <tr><td>aura.phase.name</td><td style="color:var(--text-muted)">string</td><td style="color:var(--text-dim)">Current phase name</td></tr>
+          <tr><td>aura.phase.iteration</td><td style="color:var(--text-muted)">int</td><td style="color:var(--text-dim)">Phase iteration count</td></tr>
+          <tr><td>aura.conformance.functional</td><td style="color:var(--text-muted)">double</td><td style="color:var(--text-dim)">Functional completeness (0–1)</td></tr>
+          <tr><td>aura.conformance.correctness</td><td style="color:var(--text-muted)">double</td><td style="color:var(--text-dim)">Correctness score (0–1)</td></tr>
+          <tr><td>aura.conformance.constraints</td><td style="color:var(--text-muted)">double</td><td style="color:var(--text-dim)">Constraint adherence (0–1)</td></tr>
+          <tr><td>aura.conformance.iteration_penalty</td><td style="color:var(--text-muted)">double</td><td style="color:var(--text-dim)">Iteration penalty (0–1)</td></tr>
+          <tr><td>aura.conformance.overall</td><td style="color:var(--text-muted)">double</td><td style="color:var(--text-dim)">Weighted overall score (0–1)</td></tr>
+          <tr><td>aura.failure.type</td><td style="color:var(--text-muted)">string</td><td style="color:var(--text-dim)">Failure classification</td></tr>
+          <tr><td>aura.recovery.attempt</td><td style="color:var(--text-muted)">int</td><td style="color:var(--text-dim)">Current recovery attempt number</td></tr>
+          <tr><td>aura.recovery.total</td><td style="color:var(--text-muted)">int</td><td style="color:var(--text-dim)">Total recovery attempts</td></tr>
+          <tr><td>aura.agent.name</td><td style="color:var(--text-muted)">string</td><td style="color:var(--text-dim)">Agent identifier</td></tr>
+          <tr><td>aura.agent.model</td><td style="color:var(--text-muted)">string</td><td style="color:var(--text-dim)">Model used</td></tr>
+          <tr><td>aura.agent.framework</td><td style="color:var(--text-muted)">string</td><td style="color:var(--text-dim)">Agent framework</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Metric Instruments</h4>
+      <table class="spec-table">
+        <thead><tr><th>Instrument</th><th>Type</th><th>Unit</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>aura.deliverables.count</td><td style="color:var(--text-muted)">Counter</td><td style="color:var(--text-dim)">{deliverable}</td><td style="color:var(--text-dim)">Total deliverables processed</td></tr>
+          <tr><td>aura.deliverables.accepted</td><td style="color:var(--text-muted)">Counter</td><td style="color:var(--text-dim)">{deliverable}</td><td style="color:var(--text-dim)">Deliverables accepted</td></tr>
+          <tr><td>aura.deliverables.failed</td><td style="color:var(--text-muted)">Counter</td><td style="color:var(--text-dim)">{deliverable}</td><td style="color:var(--text-dim)">Deliverables failed</td></tr>
+          <tr><td>aura.resolution_latency</td><td style="color:var(--text-muted)">Histogram</td><td style="color:var(--text-dim)">s</td><td style="color:var(--text-dim)">Resolution latency distribution</td></tr>
+          <tr><td>aura.conformance.score</td><td style="color:var(--text-muted)">Histogram</td><td style="color:var(--text-dim)">1</td><td style="color:var(--text-dim)">Conformance score distribution</td></tr>
+          <tr><td>aura.recovery.attempts</td><td style="color:var(--text-muted)">Histogram</td><td style="color:var(--text-dim)">{attempt}</td><td style="color:var(--text-dim)">Recovery attempts per deliverable</td></tr>
+          <tr><td>aura.tool_calls.count</td><td style="color:var(--text-muted)">Counter</td><td style="color:var(--text-dim)">{call}</td><td style="color:var(--text-dim)">Total tool calls</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ── Compatibility ── -->
+    <div id="spec-compatibility" class="spec-block fade-in">
+      <h3>7. Spec Framework Compatibility</h3>
+      <p>AURA is spec-framework agnostic. Any system that defines acceptance criteria for agent work can be an AURA spec source.</p>
+      <table class="spec-table">
+        <thead><tr><th>Source</th><th>Spec =</th><th>Requirements =</th><th>Deliverable Boundary</th></tr></thead>
+        <tbody>
+          <tr><td>OpenSpec</td><td style="color:var(--text-muted)">Change folder</td><td style="color:var(--text-muted)">Delta spec requirements</td><td style="color:var(--text-dim)">propose → archive</td></tr>
+          <tr><td>Jira</td><td style="color:var(--text-muted)">Ticket</td><td style="color:var(--text-muted)">Acceptance criteria</td><td style="color:var(--text-dim)">Created → Done</td></tr>
+          <tr><td>GitHub Issue</td><td style="color:var(--text-muted)">Issue body</td><td style="color:var(--text-muted)">Checklist items</td><td style="color:var(--text-dim)">Opened → closed</td></tr>
+          <tr><td>Markdown</td><td style="color:var(--text-muted)">The file</td><td style="color:var(--text-muted)">Bullet points</td><td style="color:var(--text-dim)">Created → verified</td></tr>
+          <tr><td>User prompt</td><td style="color:var(--text-muted)">The prompt text</td><td style="color:var(--text-muted)">Implicit (single req)</td><td style="color:var(--text-dim)">Prompt → accepted</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ── Tiers ── -->
+    <!-- ── Supporting Metrics ── -->
+    <div id="spec-supporting" class="spec-block fade-in">
+      <h3>8. Supporting Metrics</h3>
+      <p>The five headline metrics tell you <em>what's happening</em>. The supporting metrics tell you <em>why</em>. Every supporting metric feeds at least one headline metric — when a headline goes red, you drill into the supporting metrics to find the cause.</p>
+
+      <div class="spec-supporting-card">
+        <h4>Token Usage</h4>
+        <div class="feeds">Feeds → Recovery Efficiency, Feature Throughput</div>
+        <p>Total input tokens, output tokens, cost per deliverable. If an agent uses 50k tokens on a deliverable that should take 10k, the extra 40k is recovery overhead. It also contextualises Feature Throughput — are you shipping more because the agent is efficient, or because it's brute-forcing with expensive models? Token cost per deliverable is the unit economics metric teams will care about most once they're past the "does it work" phase.</p>
+      </div>
+
+      <div class="spec-supporting-card">
+        <h4>Tool Call Count</h4>
+        <div class="feeds">Feeds → Recovery Efficiency, Resolution Latency</div>
+        <p>Counts by type: Write, Edit, Bash, Read, etc. A healthy deliverable has a predictable ratio of reads to writes. If you see 40 Read calls and 2 Writes, the agent spent most of its time searching. If you see 15 Write calls and 12 Edit calls on the same files, it's rewriting its own work. The pattern tells you where the agent is struggling.</p>
+      </div>
+
+      <div class="spec-supporting-card">
+        <h4>Phase Duration</h4>
+        <div class="feeds">Feeds → Resolution Latency</div>
+        <p>Time spent in each phase: propose, specs, design, tasks, apply, verify. This decomposes Resolution Latency into its parts. A 4-hour deliverable where 3.5 hours was in <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">apply</code> is very different from one where 2 hours was human review during <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">verify</code>. This is where you find the bottleneck — is the agent slow, or is the human slow to review?</p>
+      </div>
+
+      <div class="spec-supporting-card">
+        <h4>Apply Iterations</h4>
+        <div class="feeds">Feeds → Spec Conformance, Recovery Efficiency</div>
+        <p>How many times the apply phase ran before acceptance. The most direct indicator feeding Spec Conformance and Recovery Efficiency. First-time-right deliverables score higher on conformance (via the iteration penalty) and have zero recovery overhead. Tracking the count over time tells you if your agent is getting better or worse.</p>
+      </div>
+
+      <div class="spec-supporting-card">
+        <h4>Recovery Attempts</h4>
+        <div class="feeds">Feeds → Recovery Efficiency</div>
+        <p>Count of rework cycles within an apply iteration — different from apply iterations. An apply iteration is "the agent stopped, human said try again." A recovery attempt is "the agent hit an error and self-corrected within a single run." High recovery attempts with eventual success means the agent is resilient but inefficient. High recovery attempts with failure means it's thrashing.</p>
+      </div>
+
+      <div class="spec-supporting-card">
+        <h4>Tasks Completed vs Total</h4>
+        <div class="feeds">Feeds → Spec Conformance</div>
+        <p>From the spec's task checklist. The raw input to the functional completeness dimension of Spec Conformance. Useful on its own as a progress metric during execution — it answers "how far did the agent get" for both in-progress and failed deliverables.</p>
+      </div>
+
+      <div class="spec-supporting-card">
+        <h4>Failure Type Distribution</h4>
+        <div class="feeds">Feeds → Deliverable Failure Rate</div>
+        <p>Breakdown across: spec_misunderstanding, hallucination, infinite_loop, tool_failure, constraint_violation, incomplete, regression. Categorises <em>why</em> deliverables fail, which the Deliverable Failure Rate alone can't tell you. A 12% failure rate means very different things if it's all tool failures (infrastructure problem) versus all hallucinations (model problem). This is the metric that tells you where to invest.</p>
+      </div>
+
+      <div class="spec-supporting-card">
+        <h4>Human Intervention Count</h4>
+        <div class="feeds">Feeds → Recovery Efficiency, Spec Conformance</div>
+        <p>Times a human had to step in during execution. An agent that completes every deliverable but needs 5 human nudges per run isn't really autonomous. This metric tracks the journey toward full autonomy.</p>
+      </div>
+
+      <div class="spec-supporting-card">
+        <h4>Complexity Distribution</h4>
+        <div class="feeds">Feeds → Feature Throughput, Resolution Latency</div>
+        <p>Trivial/simple/moderate/complex breakdown of deliverables. Contextualises Feature Throughput and Resolution Latency. Shipping 10 trivial deliverables/day is not the same as shipping 2 complex ones. Without this, you can game throughput by splitting work into tiny pieces.</p>
+      </div>
+
+      <h4>The Relationship Map</h4>
+      <p>Every supporting metric feeds at least one headline metric, and most feed two. Look at the five headlines on a dashboard — when one goes red, drill into the supporting metrics to find the cause.</p>
+      <div class="spec-relationship-map"><span class="supporting">Token Usage</span> <span class="connector">──────────┐</span>
+<span class="supporting">Tool Call Count</span> <span class="connector">──────┼──→</span> <span class="headline">Recovery Efficiency</span>
+<span class="supporting">Recovery Attempts</span> <span class="connector">────┘</span>
+                           <span class="connector">↕</span>
+<span class="supporting">Phase Duration</span> <span class="connector">───────────→</span> <span class="headline">Resolution Latency</span>
+                           <span class="connector">↕</span>
+<span class="supporting">Apply Iterations</span> <span class="connector">─────┐</span>
+<span class="supporting">Tasks Completed</span> <span class="connector">──────┼──→</span> <span class="headline">Spec Conformance</span>
+<span class="supporting">Human Interventions</span> <span class="connector">──┘</span>
+                           <span class="connector">↕</span>
+<span class="supporting">Failure Type</span> <span class="connector">─────────────→</span> <span class="headline">Deliverable Failure Rate</span>
+                           <span class="connector">↕</span>
+<span class="supporting">Complexity Distribution</span> <span class="connector">──→</span> <span class="headline">Feature Throughput</span></div>
+    </div>
+
+    <!-- ── Tiers ── -->
+    <div id="spec-tiers" class="spec-block fade-in">
+      <h3>9. Performance Tiers</h3>
+      <p>Summary of all performance tiers across the five metrics. Tier classification uses the most recent rolling window — recommended default is 7 days or 20 deliverables, whichever comes first.</p>
+      <table class="spec-table">
+        <thead><tr><th>Metric</th><th class="hl">Elite</th><th>High</th><th>Medium</th><th>Low</th></tr></thead>
+        <tbody>
+          <tr><td>Feature Throughput</td><td class="hl">≥3/day</td><td style="color:var(--text-muted)">≥1/day</td><td style="color:var(--text-muted)">≥1/week</td><td style="color:var(--text-dim)">&lt;1/week</td></tr>
+          <tr><td>Resolution Latency</td><td class="hl">&lt;1 hour</td><td style="color:var(--text-muted)">&lt;4 hours</td><td style="color:var(--text-muted)">&lt;1 day</td><td style="color:var(--text-dim)">≥1 day</td></tr>
+          <tr><td>Deliverable Failure Rate</td><td class="hl">&lt;5%</td><td style="color:var(--text-muted)">&lt;10%</td><td style="color:var(--text-muted)">&lt;15%</td><td style="color:var(--text-dim)">≥15%</td></tr>
+          <tr><td>Recovery Efficiency</td><td class="hl">&lt;5%</td><td style="color:var(--text-muted)">&lt;10%</td><td style="color:var(--text-muted)">&lt;20%</td><td style="color:var(--text-dim)">≥20%</td></tr>
+          <tr><td>Spec Conformance</td><td class="hl">≥0.95</td><td style="color:var(--text-muted)">≥0.85</td><td style="color:var(--text-muted)">≥0.70</td><td style="color:var(--text-dim)">&lt;0.70</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
 <!-- ═══════════ PHILOSOPHY ═══════════ -->
 <section>
   <div class="container">
@@ -636,8 +1208,8 @@ footer a:hover { color: var(--glow); }
     <h2>Start measuring in minutes</h2>
     <p>The AURA SDK is a single Python file. Drop it in, point it at an OTel Collector, and see your five metrics.</p>
     <div class="cta-actions">
-      <a href="#" class="btn btn-primary" onclick="alert('Check the SDK files included with this page'); return false;">Get the SDK →</a>
-      <a href="#" class="btn btn-ghost" onclick="alert('Check the concept doc included with this page'); return false;">Read the full spec</a>
+      <a href="https://github.com/aura-metrics/aura-metrics-specification" class="btn btn-primary">View on GitHub →</a>
+      <a href="#specification" class="btn btn-ghost">Read the full spec</a>
     </div>
   </div>
 </section>
@@ -654,6 +1226,14 @@ const observer = new IntersectionObserver(
   { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
 );
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+function switchTab(event, tabId) {
+  const container = event.target.closest('.spec-block');
+  container.querySelectorAll('.spec-tab').forEach(t => t.classList.remove('active'));
+  container.querySelectorAll('.spec-tab-content').forEach(c => c.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+}
 </script>
 </body>
 </html>
