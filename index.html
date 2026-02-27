@@ -1227,6 +1227,48 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
   </div>
 </section>
 
+<!-- ═══════════ IMPLEMENTATION ═══════════ -->
+<section id="implementation">
+  <div class="container">
+    <span class="label">Implementation</span>
+    <h2>Put AURA to work</h2>
+    <p>Integrate AURA into your agent toolchain using one of the available plugins.</p>
+
+    <h3 style="font-family:var(--mono);font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dim);margin-top:56px;margin-bottom:0;">Plugins</h3>
+    <div class="plugins-grid">
+      <div class="plugin-card">
+        <div class="plugin-card-label">Plugin</div>
+        <h3>Claude Code</h3>
+        <p>Instruments Claude Code agent sessions with AURA metrics. Tracks deliverables, phases, and tool calls automatically via Claude Code hooks, emitting OpenTelemetry spans to your collector.</p>
+        <a href="https://github.com/aura-metrics/aura-metrics-claude-code-plugin" class="plugin-link" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          aura-metrics-claude-code-plugin →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ARCHITECTURE ═══════════ -->
+<section id="architecture">
+  <div class="container">
+    <span class="label">Architecture</span>
+    <h2>Built on OpenTelemetry</h2>
+    <p>AURA extends OTel's GenAI semantic conventions. Your existing infrastructure, exporters, and backends all work.</p>
+    <div class="arch-pipeline fade-in">
+      <div class="arch-step"><span class="tag you">YOUR CODE</span><span class="desc">LangChain · CrewAI · AutoGen · PydanticAI · custom</span></div>
+      <div class="arch-conn"></div>
+      <div class="arch-step"><span class="tag aura">AURA SDK</span><span class="desc">Deliverable lifecycle · Spec conformance · Failure classification · Recovery tracking</span></div>
+      <div class="arch-conn"></div>
+      <div class="arch-step"><span class="tag otel">OTEL SDK</span><span class="desc">Traces · Metrics · Events</span></div>
+      <div class="arch-conn"></div>
+      <div class="arch-step"><span class="tag otel">OTEL COLLECTOR</span><span class="desc">AURA processor · Spanmetrics · Export to any backend</span></div>
+      <div class="arch-conn"></div>
+      <div class="arch-step"><span class="tag infra">BACKEND</span><span class="desc">Grafana · Datadog · Honeycomb · Jaeger · any OTLP-compatible</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════ SPECS ═══════════ -->
 <section id="specs">
   <div class="container">
@@ -1254,48 +1296,6 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
         <div class="num">THE PRINCIPLE</div>
         <h3>More explicit spec → more useful score</h3>
         <p>A vague prompt gives you a binary signal. A structured spec with 5 explicit requirements gives you a precise conformance gradient. AURA rewards specificity.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ ARCHITECTURE ═══════════ -->
-<section id="architecture">
-  <div class="container">
-    <span class="label">Architecture</span>
-    <h2>Built on OpenTelemetry</h2>
-    <p>AURA extends OTel's GenAI semantic conventions. Your existing infrastructure, exporters, and backends all work.</p>
-    <div class="arch-pipeline fade-in">
-      <div class="arch-step"><span class="tag you">YOUR CODE</span><span class="desc">LangChain · CrewAI · AutoGen · PydanticAI · custom</span></div>
-      <div class="arch-conn"></div>
-      <div class="arch-step"><span class="tag aura">AURA SDK</span><span class="desc">Deliverable lifecycle · Spec conformance · Failure classification · Recovery tracking</span></div>
-      <div class="arch-conn"></div>
-      <div class="arch-step"><span class="tag otel">OTEL SDK</span><span class="desc">Traces · Metrics · Events</span></div>
-      <div class="arch-conn"></div>
-      <div class="arch-step"><span class="tag otel">OTEL COLLECTOR</span><span class="desc">AURA processor · Spanmetrics · Export to any backend</span></div>
-      <div class="arch-conn"></div>
-      <div class="arch-step"><span class="tag infra">BACKEND</span><span class="desc">Grafana · Datadog · Honeycomb · Jaeger · any OTLP-compatible</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ IMPLEMENTATION ═══════════ -->
-<section id="implementation">
-  <div class="container">
-    <span class="label">Implementation</span>
-    <h2>Put AURA to work</h2>
-    <p>Integrate AURA into your agent toolchain using one of the available plugins.</p>
-
-    <h3 style="font-family:var(--mono);font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dim);margin-top:56px;margin-bottom:0;">Plugins</h3>
-    <div class="plugins-grid">
-      <div class="plugin-card">
-        <div class="plugin-card-label">Plugin</div>
-        <h3>Claude Code</h3>
-        <p>Instruments Claude Code agent sessions with AURA metrics. Tracks deliverables, phases, and tool calls automatically via Claude Code hooks, emitting OpenTelemetry spans to your collector.</p>
-        <a href="https://github.com/aura-metrics/aura-metrics-claude-code-plugin" class="plugin-link" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-          aura-metrics-claude-code-plugin →
-        </a>
       </div>
     </div>
   </div>
