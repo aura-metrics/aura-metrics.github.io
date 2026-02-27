@@ -34,7 +34,7 @@
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; scroll-padding-top: 100px; }
 
 body {
   font-family: var(--sans);
@@ -111,7 +111,7 @@ nav .nav-github svg { width: 15px; height: 15px; fill: currentColor; }
 /* ── Hero ── */
 .hero {
   min-height: 100vh; display: flex; flex-direction: column;
-  justify-content: center; padding: 120px 0 80px; position: relative;
+  justify-content: center; padding: 161px 0 80px; position: relative;
 }
 .hero::before {
   content: ''; position: absolute;
@@ -623,7 +623,7 @@ footer a:hover { color: var(--glow); }
         │&nbsp;&nbsp;&nbsp;├── Tool calls<br>
         │&nbsp;&nbsp;&nbsp;└── Reasoning steps<br>
         └── <span class="hl">Outcome</span><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <span class="hl">Spec Conformance</span> <span class="dim">← how well did it match?</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <span class="hl">Delivery Completeness</span> <span class="dim">← how well did it match?</span>
       </div>
     </div>
   </div>
@@ -719,20 +719,20 @@ footer a:hover { color: var(--glow); }
       </div>
       <div class="metric-card">
         <div class="metric-number" style="color:var(--glow);">05 · Quality — Unique to AURA</div>
-        <div class="metric-name">Spec Conformance</div>
+        <div class="metric-name">Delivery Completeness</div>
 
-        <div class="metric-desc">How well did the deliverable satisfy the spec? A quality gradient between "barely acceptable" and "perfect."</div>
+        <div class="metric-desc">How completely did the agent deliver what was asked? A percentage score from 0–100% across functional, correctness, and constraint dimensions.</div>
         <div class="tiers">
-          <div class="tier elite"><span class="tier-label">Elite</span><span class="tier-value">&gt;0.95</span></div>
-          <div class="tier"><span class="tier-label">High</span><span class="tier-value">0.80–0.95</span></div>
-          <div class="tier"><span class="tier-label">Medium</span><span class="tier-value">0.60–0.80</span></div>
-          <div class="tier"><span class="tier-label">Low</span><span class="tier-value">&lt;0.60</span></div>
+          <div class="tier elite"><span class="tier-label">Elite</span><span class="tier-value">&gt;95%</span></div>
+          <div class="tier"><span class="tier-label">High</span><span class="tier-value">80–95%</span></div>
+          <div class="tier"><span class="tier-label">Medium</span><span class="tier-value">60–80%</span></div>
+          <div class="tier"><span class="tier-label">Low</span><span class="tier-value">&lt;60%</span></div>
         </div>
       </div>
     </div>
 
     <div style="margin-top: 48px;" class="fade-in">
-      <h3 style="text-align:center; margin-bottom:8px;">Conformance Dimensions</h3>
+      <h3 style="text-align:center; margin-bottom:8px;">Completeness Dimensions</h3>
       <p style="text-align:center; margin:0 auto;">Four weighted dimensions that capture how completely and accurately the agent delivered.</p>
       <div class="dimension-grid">
         <div class="dimension">
@@ -776,7 +776,7 @@ footer a:hover { color: var(--glow); }
           <tr><td>Throughput 2</td><td>Lead Time</td><td class="glow-cell">Resolution Latency</td></tr>
           <tr><td>Stability 1</td><td>Change Failure Rate</td><td class="glow-cell">Deliverable Failure Rate</td></tr>
           <tr><td>Stability 2</td><td>MTTR</td><td class="glow-cell">Recovery Efficiency</td></tr>
-          <tr><td>Quality</td><td style="color:var(--text-dim)">—</td><td class="glow-cell">Spec Conformance</td></tr>
+          <tr><td>Quality</td><td style="color:var(--text-dim)">—</td><td class="glow-cell">Delivery Completeness</td></tr>
           <tr><td>Data source</td><td>CI/CD pipelines</td><td class="glow-cell">OpenTelemetry traces</td></tr>
         </tbody>
       </table>
@@ -794,7 +794,7 @@ footer a:hover { color: var(--glow); }
       <span style="font-family:var(--mono);font-size:0.72rem;color:var(--text-dim);">MIT</span>
       <a href="https://github.com/aura-metrics/aura-metrics-specification" style="font-family:var(--mono);font-size:0.72rem;color:var(--glow-dim);text-decoration:none;">GitHub →</a>
     </div>
-    <p style="margin-top:20px;">AURA is a metrics framework that measures the reliability and quality of AI agent output. Like DORA measures software delivery performance through four key metrics, AURA measures agent performance through five: Feature Throughput, Resolution Latency, Deliverable Failure Rate, Recovery Efficiency, and Spec Conformance.</p>
+    <p style="margin-top:20px;">AURA is a metrics framework that measures the reliability and quality of AI agent output. Like DORA measures software delivery performance through four key metrics, AURA measures agent performance through five: Feature Throughput, Resolution Latency, Deliverable Failure Rate, Recovery Efficiency, and Delivery Completeness.</p>
 
     <div class="spec-nav">
       <button class="active" onclick="showSpec(this,'spec-terminology')">Terminology</button>
@@ -818,8 +818,8 @@ footer a:hover { color: var(--glow); }
         <dd>The acceptance criteria for a deliverable. Can come from any source — an OpenSpec change folder, a Jira ticket, a markdown file, a plain text prompt. The spec defines what "done" means.</dd>
         <dt>Phase</dt>
         <dd>A stage in the deliverable lifecycle. The canonical phases are: <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">propose</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">specs</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">design</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">tasks</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">apply</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">verify</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">archive</code>. Not all phases are required for every deliverable.</dd>
-        <dt>Conformance</dt>
-        <dd>The degree to which a deliverable meets its spec, scored 0–1. A conformance score captures quality beyond binary pass/fail.</dd>
+        <dt>Delivery Completeness</dt>
+        <dd>How completely a deliverable met its spec, expressed as a percentage (0–100%). Captures quality beyond binary pass/fail — a deliverable can be accepted but still partially complete.</dd>
         <dt>Recovery</dt>
         <dd>A rework cycle triggered by a failure during execution. When verification fails and the agent retries, that retry is a recovery attempt.</dd>
       </dl>
@@ -883,20 +883,20 @@ footer a:hover { color: var(--glow); }
         </tbody>
       </table>
 
-      <h4>2.5 Spec Conformance</h4>
+      <h4>2.5 Delivery Completeness</h4>
       <p>A weighted quality score measuring how well an accepted deliverable matches its spec.</p>
       <div class="spec-formula">(0.4 × functional) + (0.3 × correctness) + (0.2 × constraints) + (0.1 × iteration_penalty)</div>
       <table class="spec-table">
         <thead><tr><th>Tier</th><th>Threshold</th></tr></thead>
         <tbody>
-          <tr><td class="hl">Elite</td><td>≥0.95</td></tr>
-          <tr><td>High</td><td>≥0.85</td></tr>
-          <tr><td>Medium</td><td>≥0.70</td></tr>
+          <tr><td class="hl">Elite</td><td>≥95%</td></tr>
+          <tr><td>High</td><td>≥85%</td></tr>
+          <tr><td>Medium</td><td>≥70%</td></tr>
           <tr><td>Low</td><td>&lt;0.70</td></tr>
         </tbody>
       </table>
 
-      <h4>2.5.1 Conformance Dimensions</h4>
+      <h4>2.5.1 Completeness Dimensions</h4>
       <table class="spec-table">
         <thead><tr><th>Dimension</th><th>Weight</th><th>Calculation</th></tr></thead>
         <tbody>
@@ -1087,9 +1087,9 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
 │   │   └── aura.tool.call
 │   └── aura.recovery.attempt
 ├── aura.deliverable.validate
-│   ├── aura.conformance.functional
-│   ├── aura.conformance.correctness
-│   └── aura.conformance.constraints
+│   ├── aura.completeness.functional
+│   ├── aura.completeness.correctness
+│   └── aura.completeness.constraints
 └── aura.deliverable.accept</div>
 
       <h4>Semantic Attributes</h4>
@@ -1105,11 +1105,11 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
           <tr><td>aura.spec.requirements_count</td><td style="color:var(--text-muted)">int</td><td style="color:var(--text-dim)">Number of requirements extracted</td></tr>
           <tr><td>aura.phase.name</td><td style="color:var(--text-muted)">string</td><td style="color:var(--text-dim)">Current phase name</td></tr>
           <tr><td>aura.phase.iteration</td><td style="color:var(--text-muted)">int</td><td style="color:var(--text-dim)">Phase iteration count</td></tr>
-          <tr><td>aura.conformance.functional</td><td style="color:var(--text-muted)">double</td><td style="color:var(--text-dim)">Functional completeness (0–1)</td></tr>
-          <tr><td>aura.conformance.correctness</td><td style="color:var(--text-muted)">double</td><td style="color:var(--text-dim)">Correctness score (0–1)</td></tr>
-          <tr><td>aura.conformance.constraints</td><td style="color:var(--text-muted)">double</td><td style="color:var(--text-dim)">Constraint adherence (0–1)</td></tr>
-          <tr><td>aura.conformance.iteration_penalty</td><td style="color:var(--text-muted)">double</td><td style="color:var(--text-dim)">Iteration penalty (0–1)</td></tr>
-          <tr><td>aura.conformance.overall</td><td style="color:var(--text-muted)">double</td><td style="color:var(--text-dim)">Weighted overall score (0–1)</td></tr>
+          <tr><td>aura.completeness.functional</td><td style="color:var(--text-muted)">double</td><td style="color:var(--text-dim)">Functional completeness (0–100%)</td></tr>
+          <tr><td>aura.completeness.correctness</td><td style="color:var(--text-muted)">double</td><td style="color:var(--text-dim)">Correctness score (0–100%)</td></tr>
+          <tr><td>aura.completeness.constraints</td><td style="color:var(--text-muted)">double</td><td style="color:var(--text-dim)">Constraint adherence (0–100%)</td></tr>
+          <tr><td>aura.completeness.iteration_penalty</td><td style="color:var(--text-muted)">double</td><td style="color:var(--text-dim)">Iteration penalty (0–100%)</td></tr>
+          <tr><td>aura.completeness.overall</td><td style="color:var(--text-muted)">double</td><td style="color:var(--text-dim)">Weighted overall score (0–100%)</td></tr>
           <tr><td>aura.failure.type</td><td style="color:var(--text-muted)">string</td><td style="color:var(--text-dim)">Failure classification</td></tr>
           <tr><td>aura.recovery.attempt</td><td style="color:var(--text-muted)">int</td><td style="color:var(--text-dim)">Current recovery attempt number</td></tr>
           <tr><td>aura.recovery.total</td><td style="color:var(--text-muted)">int</td><td style="color:var(--text-dim)">Total recovery attempts</td></tr>
@@ -1127,7 +1127,7 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
           <tr><td>aura.deliverables.accepted</td><td style="color:var(--text-muted)">Counter</td><td style="color:var(--text-dim)">{deliverable}</td><td style="color:var(--text-dim)">Deliverables accepted</td></tr>
           <tr><td>aura.deliverables.failed</td><td style="color:var(--text-muted)">Counter</td><td style="color:var(--text-dim)">{deliverable}</td><td style="color:var(--text-dim)">Deliverables failed</td></tr>
           <tr><td>aura.resolution_latency</td><td style="color:var(--text-muted)">Histogram</td><td style="color:var(--text-dim)">s</td><td style="color:var(--text-dim)">Resolution latency distribution</td></tr>
-          <tr><td>aura.conformance.score</td><td style="color:var(--text-muted)">Histogram</td><td style="color:var(--text-dim)">1</td><td style="color:var(--text-dim)">Conformance score distribution</td></tr>
+          <tr><td>aura.completeness.score</td><td style="color:var(--text-muted)">Histogram</td><td style="color:var(--text-dim)">1</td><td style="color:var(--text-dim)">Conformance score distribution</td></tr>
           <tr><td>aura.recovery.attempts</td><td style="color:var(--text-muted)">Histogram</td><td style="color:var(--text-dim)">{attempt}</td><td style="color:var(--text-dim)">Recovery attempts per deliverable</td></tr>
           <tr><td>aura.tool_calls.count</td><td style="color:var(--text-muted)">Counter</td><td style="color:var(--text-dim)">{call}</td><td style="color:var(--text-dim)">Total tool calls</td></tr>
         </tbody>
@@ -1176,8 +1176,8 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
 
       <div class="spec-supporting-card">
         <h4>Apply Iterations</h4>
-        <div class="feeds">Feeds → Spec Conformance, Recovery Efficiency</div>
-        <p>How many times the apply phase ran before acceptance. The most direct indicator feeding Spec Conformance and Recovery Efficiency. First-time-right deliverables score higher on conformance (via the iteration penalty) and have zero recovery overhead. Tracking the count over time tells you if your agent is getting better or worse.</p>
+        <div class="feeds">Feeds → Delivery Completeness, Recovery Efficiency</div>
+        <p>How many times the apply phase ran before acceptance. The most direct indicator feeding Delivery Completeness and Recovery Efficiency. First-time-right deliverables score higher on conformance (via the iteration penalty) and have zero recovery overhead. Tracking the count over time tells you if your agent is getting better or worse.</p>
       </div>
 
       <div class="spec-supporting-card">
@@ -1188,8 +1188,8 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
 
       <div class="spec-supporting-card">
         <h4>Tasks Completed vs Total</h4>
-        <div class="feeds">Feeds → Spec Conformance</div>
-        <p>From the spec's task checklist. The raw input to the functional completeness dimension of Spec Conformance. Useful on its own as a progress metric during execution — it answers "how far did the agent get" for both in-progress and failed deliverables.</p>
+        <div class="feeds">Feeds → Delivery Completeness</div>
+        <p>From the spec's task checklist. The raw input to the functional completeness dimension of Delivery Completeness. Useful on its own as a progress metric during execution — it answers "how far did the agent get" for both in-progress and failed deliverables.</p>
       </div>
 
       <div class="spec-supporting-card">
@@ -1200,7 +1200,7 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
 
       <div class="spec-supporting-card">
         <h4>Human Intervention Count</h4>
-        <div class="feeds">Feeds → Recovery Efficiency, Spec Conformance</div>
+        <div class="feeds">Feeds → Recovery Efficiency, Delivery Completeness</div>
         <p>Times a human had to step in during execution. An agent that completes every deliverable but needs 5 human nudges per run isn't really autonomous. This metric tracks the journey toward full autonomy.</p>
       </div>
 
@@ -1219,7 +1219,7 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
 <span class="supporting">Phase Duration</span> <span class="connector">───────────→</span> <span class="headline">Resolution Latency</span>
                            <span class="connector">↕</span>
 <span class="supporting">Apply Iterations</span> <span class="connector">─────┐</span>
-<span class="supporting">Tasks Completed</span> <span class="connector">──────┼──→</span> <span class="headline">Spec Conformance</span>
+<span class="supporting">Tasks Completed</span> <span class="connector">──────┼──→</span> <span class="headline">Delivery Completeness</span>
 <span class="supporting">Human Interventions</span> <span class="connector">──┘</span>
                            <span class="connector">↕</span>
 <span class="supporting">Failure Type</span> <span class="connector">─────────────→</span> <span class="headline">Deliverable Failure Rate</span>
@@ -1238,7 +1238,7 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
           <tr><td>Resolution Latency</td><td class="hl">&lt;1 hour</td><td style="color:var(--text-muted)">&lt;4 hours</td><td style="color:var(--text-muted)">&lt;1 day</td><td style="color:var(--text-dim)">≥1 day</td></tr>
           <tr><td>Deliverable Failure Rate</td><td class="hl">&lt;5%</td><td style="color:var(--text-muted)">&lt;10%</td><td style="color:var(--text-muted)">&lt;15%</td><td style="color:var(--text-dim)">≥15%</td></tr>
           <tr><td>Recovery Efficiency</td><td class="hl">&lt;5%</td><td style="color:var(--text-muted)">&lt;10%</td><td style="color:var(--text-muted)">&lt;20%</td><td style="color:var(--text-dim)">≥20%</td></tr>
-          <tr><td>Spec Conformance</td><td class="hl">≥0.95</td><td style="color:var(--text-muted)">≥0.85</td><td style="color:var(--text-muted)">≥0.70</td><td style="color:var(--text-dim)">&lt;0.70</td></tr>
+          <tr><td>Delivery Completeness</td><td class="hl">≥95%</td><td style="color:var(--text-muted)">≥85%</td><td style="color:var(--text-muted)">≥70%</td><td style="color:var(--text-dim)">&lt;70%</td></tr>
         </tbody>
       </table>
     </div>
@@ -1268,7 +1268,7 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
     <div class="arch-pipeline fade-in">
       <div class="arch-step"><span class="tag you">YOUR CODE</span><span class="desc">LangChain · CrewAI · AutoGen · PydanticAI · custom</span></div>
       <div class="arch-conn"></div>
-      <div class="arch-step"><span class="tag aura">AURA SDK</span><span class="desc">Deliverable lifecycle · Spec conformance · Failure classification · Recovery tracking</span></div>
+      <div class="arch-step"><span class="tag aura">AURA SDK</span><span class="desc">Deliverable lifecycle · Delivery completeness · Failure classification · Recovery tracking</span></div>
       <div class="arch-conn"></div>
       <div class="arch-step"><span class="tag otel">OTEL SDK</span><span class="desc">Traces · Metrics · Events</span></div>
       <div class="arch-conn"></div>
