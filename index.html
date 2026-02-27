@@ -68,9 +68,20 @@ p + p { margin-top: 16px; }
   display: block;
 }
 
+/* ── Draft banner ── */
+.draft-banner {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(74,222,128,0.08); border-bottom: 1px solid var(--glow-dim);
+  padding: 10px 32px; display: flex; align-items: center; justify-content: center; gap: 16px;
+  font-family: var(--mono); font-size: 0.72rem; color: var(--text-muted);
+}
+.draft-banner strong { color: var(--glow); }
+.draft-banner a { color: var(--glow-dim); text-decoration: none; border-bottom: 1px solid var(--glow-dim); transition: color 0.2s; }
+.draft-banner a:hover { color: var(--glow); }
+
 /* ── Nav ── */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  position: fixed; top: 41px; left: 0; right: 0; z-index: 100;
   padding: 16px 32px;
   display: flex; justify-content: space-between; align-items: center;
   background: rgba(8,8,12,0.88); backdrop-filter: blur(16px);
@@ -521,13 +532,21 @@ footer a:hover { color: var(--glow); }
 </head>
 <body>
 
+<div class="draft-banner">
+  <strong>DRAFT PROPOSAL</strong>
+  <span>·</span>
+  <span>This is a proposal, not a finished product. Read, challenge, and improve it.</span>
+  <span>·</span>
+  <a href="https://github.com/orgs/aura-metrics/discussions" target="_blank" rel="noopener">Join the discussion →</a>
+</div>
+
 <nav>
   <a href="#" class="logo"><span>AURA</span></a>
   <ul class="nav-links">
     <li><a href="#problem">The Problem</a></li>
     <li><a href="#metrics">The 5 Metrics</a></li>
     <li><a href="#specification">Specification</a></li>
-    <li><a href="#implementation">Get Started</a></li>
+    <li><a href="#implementation">Get Involved</a></li>
     <li><a href="#origin">Origin</a></li>
   </ul>
   <a href="https://github.com/aura-metrics/" class="nav-github" target="_blank" rel="noopener">
@@ -550,7 +569,7 @@ footer a:hover { color: var(--glow); }
     </p>
     <div class="hero-cta">
       <a href="#metrics" class="btn btn-primary">The five metrics ↓</a>
-      <a href="#start" class="btn btn-ghost">Get the SDK</a>
+      <a href="https://github.com/orgs/aura-metrics/discussions" class="btn btn-ghost" target="_blank" rel="noopener">Join the discussion →</a>
     </div>
   </div>
 </section>
@@ -1230,12 +1249,12 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
 <!-- ═══════════ IMPLEMENTATION ═══════════ -->
 <section id="implementation">
   <div class="container">
-    <span class="label">Get started</span>
-    <h2>Start measuring in minutes</h2>
-    <p>AURA is an open specification built on OpenTelemetry. Read the spec, pick a plugin for your agent framework, and start seeing your five metrics.</p>
+    <span class="label">Get involved</span>
+    <h2>This is a proposal — help shape it</h2>
+    <p>AURA is an early draft, not a finished product. The specification, metrics, and data model are open for discussion. Read it, challenge it, and help make it useful.</p>
     <div style="margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap;">
-      <a href="https://github.com/aura-metrics/aura-metrics-specification" class="btn btn-primary">View on GitHub →</a>
-      <a href="#specification" class="btn btn-ghost">Read the spec</a>
+      <a href="https://github.com/orgs/aura-metrics/discussions" class="btn btn-primary" target="_blank" rel="noopener">Join the discussion →</a>
+      <a href="https://github.com/aura-metrics/aura-metrics-specification" class="btn btn-ghost" target="_blank" rel="noopener">View on GitHub</a>
     </div>
   </div>
 </section>
@@ -1326,12 +1345,12 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
 <!-- ═══════════ CTA ═══════════ -->
 <section class="cta-section" id="start">
   <div class="container">
-    <span class="label">Get started</span>
-    <h2>Start measuring in minutes</h2>
-    <p>The AURA SDK is a single Python file. Drop it in, point it at an OTel Collector, and see your five metrics.</p>
+    <span class="label">Get involved</span>
+    <h2>Help define the standard</h2>
+    <p>AURA is a draft proposal. The goal is to establish a shared standard for measuring AI agent performance. Your input shapes what it becomes.</p>
     <div class="cta-actions">
-      <a href="https://github.com/aura-metrics/aura-metrics-specification" class="btn btn-primary">View on GitHub →</a>
-      <a href="#specification" class="btn btn-ghost">Read the full spec</a>
+      <a href="https://github.com/orgs/aura-metrics/discussions" class="btn btn-primary" target="_blank" rel="noopener">Join the discussion →</a>
+      <a href="#specification" class="btn btn-ghost">Read the spec</a>
     </div>
   </div>
 </section>
