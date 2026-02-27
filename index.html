@@ -266,23 +266,22 @@ h1 .glow {
 .comparison .glow-cell { color: var(--glow); }
 
 /* ── Architecture ── */
-.arch-diagram {
-  width: fit-content; margin: 48px auto 0; background: var(--bg-card);
-  border: 1px solid var(--border-subtle); border-radius: 10px;
-  padding: 44px; overflow-x: auto;
-}
-.arch-layer { display: flex; align-items: center; gap: 16px; padding: 14px 0; }
-.arch-layer + .arch-layer { border-top: 1px dashed var(--border-subtle); }
-.arch-layer .tag {
+.arch-pipeline { display: flex; flex-direction: column; align-items: flex-start; margin: 48px auto 0; width: fit-content; }
+.arch-step { display: grid; grid-template-columns: 150px auto; align-items: center; gap: 28px; }
+.arch-step .tag {
   font-family: var(--mono); font-size: 0.7rem;
-  padding: 4px 12px; border-radius: 4px; white-space: nowrap; flex-shrink: 0;
+  padding: 5px 12px; border-radius: 4px; white-space: nowrap; text-align: center;
 }
-.arch-layer .tag.you { background: rgba(74,222,128,0.10); color: var(--glow); }
-.arch-layer .tag.aura { background: rgba(74,222,128,0.10); color: var(--glow); }
-.arch-layer .tag.otel { background: rgba(122,184,239,0.10); color: var(--blue); }
-.arch-layer .tag.infra { background: rgba(122,239,178,0.10); color: var(--green); }
-.arch-layer .desc { font-size: 0.88rem; color: var(--text-muted); font-weight: 300; }
-.arch-arrow { text-align: center; padding: 6px 0; color: var(--text-dim); font-size: 0.85rem; }
+.arch-step .tag.you  { background: rgba(74,222,128,0.10); color: var(--glow); }
+.arch-step .tag.aura { background: rgba(74,222,128,0.10); color: var(--glow); }
+.arch-step .tag.otel { background: rgba(122,184,239,0.10); color: var(--blue); }
+.arch-step .tag.infra { background: rgba(122,239,178,0.10); color: var(--green); }
+.arch-step .desc { font-size: 0.88rem; color: var(--text-muted); font-weight: 300; }
+.arch-conn {
+  height: 36px; width: 2px; margin-left: 74px;
+  background: linear-gradient(to bottom, rgba(74,222,128,0.15), rgba(74,222,128,0.55));
+  box-shadow: 0 0 8px rgba(74,222,128,0.25);
+}
 
 /* ── Philosophy ── */
 .principles { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
@@ -787,16 +786,16 @@ footer a:hover { color: var(--glow); }
     <span class="label">Architecture</span>
     <h2>Built on OpenTelemetry</h2>
     <p>AURA extends OTel's GenAI semantic conventions. Your existing infrastructure, exporters, and backends all work.</p>
-    <div class="arch-diagram fade-in">
-      <div class="arch-layer"><span class="tag you">YOUR CODE</span><span class="desc">LangChain · CrewAI · AutoGen · PydanticAI · custom</span></div>
-      <div class="arch-arrow">↓</div>
-      <div class="arch-layer"><span class="tag aura">AURA SDK</span><span class="desc">Deliverable lifecycle · Spec conformance · Failure classification · Recovery tracking</span></div>
-      <div class="arch-arrow">↓</div>
-      <div class="arch-layer"><span class="tag otel">OTEL SDK</span><span class="desc">Traces · Metrics · Events</span></div>
-      <div class="arch-arrow">↓</div>
-      <div class="arch-layer"><span class="tag otel">OTEL COLLECTOR</span><span class="desc">AURA processor · Spanmetrics · Export to any backend</span></div>
-      <div class="arch-arrow">↓</div>
-      <div class="arch-layer"><span class="tag infra">BACKEND</span><span class="desc">Grafana · Datadog · Honeycomb · Jaeger · any OTLP-compatible</span></div>
+    <div class="arch-pipeline fade-in">
+      <div class="arch-step"><span class="tag you">YOUR CODE</span><span class="desc">LangChain · CrewAI · AutoGen · PydanticAI · custom</span></div>
+      <div class="arch-conn"></div>
+      <div class="arch-step"><span class="tag aura">AURA SDK</span><span class="desc">Deliverable lifecycle · Spec conformance · Failure classification · Recovery tracking</span></div>
+      <div class="arch-conn"></div>
+      <div class="arch-step"><span class="tag otel">OTEL SDK</span><span class="desc">Traces · Metrics · Events</span></div>
+      <div class="arch-conn"></div>
+      <div class="arch-step"><span class="tag otel">OTEL COLLECTOR</span><span class="desc">AURA processor · Spanmetrics · Export to any backend</span></div>
+      <div class="arch-conn"></div>
+      <div class="arch-step"><span class="tag infra">BACKEND</span><span class="desc">Grafana · Datadog · Honeycomb · Jaeger · any OTLP-compatible</span></div>
     </div>
   </div>
 </section>
