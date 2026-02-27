@@ -271,7 +271,7 @@ h1 .glow {
   border: 1px solid var(--border-subtle); border-radius: 10px;
   padding: 44px; overflow-x: auto;
 }
-.arch-layer { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 14px 0; }
+.arch-layer { display: flex; align-items: center; gap: 16px; padding: 14px 0; }
 .arch-layer + .arch-layer { border-top: 1px dashed var(--border-subtle); }
 .arch-layer .tag {
   font-family: var(--mono); font-size: 0.7rem;
@@ -782,11 +782,11 @@ footer a:hover { color: var(--glow); }
 </section>
 
 <!-- ═══════════ ARCHITECTURE ═══════════ -->
-<section id="architecture" style="text-align:center;">
+<section id="architecture">
   <div class="container">
     <span class="label">Architecture</span>
     <h2>Built on OpenTelemetry</h2>
-    <p style="margin:0 auto;">AURA extends OTel's GenAI semantic conventions. Your existing infrastructure, exporters, and backends all work.</p>
+    <p>AURA extends OTel's GenAI semantic conventions. Your existing infrastructure, exporters, and backends all work.</p>
     <div class="arch-diagram fade-in">
       <div class="arch-layer"><span class="tag you">YOUR CODE</span><span class="desc">LangChain · CrewAI · AutoGen · PydanticAI · custom</span></div>
       <div class="arch-arrow">↓</div>
