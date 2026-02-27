@@ -328,15 +328,17 @@ footer a:hover { color: var(--glow); }
 
 /* ── Specification ── */
 .spec-section { background: var(--bg-raised); }
-.spec-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 32px 0 48px; }
-.spec-nav a {
+.spec-nav { display: flex; flex-wrap: wrap; gap: 0; margin: 32px 0 0; border-bottom: 1px solid var(--border-subtle); }
+.spec-nav button {
   font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim);
-  text-decoration: none; padding: 6px 14px; border: 1px solid var(--border-subtle);
-  border-radius: 4px; transition: all 0.2s;
+  background: none; border: none; border-bottom: 2px solid transparent;
+  cursor: pointer; padding: 10px 16px; margin-bottom: -1px;
+  letter-spacing: 0.05em; transition: color 0.2s, border-color 0.2s; white-space: nowrap;
 }
-.spec-nav a:hover, .spec-nav a.active { color: var(--glow); border-color: var(--glow-dim); }
-.spec-block { margin-bottom: 64px; }
-.spec-block:last-child { margin-bottom: 0; }
+.spec-nav button:hover { color: var(--text); }
+.spec-nav button.active { color: var(--glow); border-bottom-color: var(--glow); }
+.spec-block { display: none; padding-top: 48px; }
+.spec-block.active { display: block; }
 .spec-block h3 { font-size: 1.6rem; color: var(--text); margin-bottom: 20px; }
 .spec-block h4 { font-family: var(--sans); font-size: 1.05rem; font-weight: 500; color: var(--text); margin: 28px 0 12px; }
 .spec-block p { margin-bottom: 12px; }
@@ -481,8 +483,7 @@ footer a:hover { color: var(--glow); }
 
   /* Spec section */
   .spec-block h3 { font-size: 1.3rem; }
-  .spec-nav { gap: 6px; }
-  .spec-nav a { font-size: 0.65rem; padding: 5px 10px; }
+  .spec-nav button { font-size: 0.65rem; padding: 8px 10px; }
   .spec-table { font-size: 0.8rem; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .spec-table th, .spec-table td { padding: 8px 10px; }
   .spec-code { font-size: 0.68rem; padding: 14px 12px; }
@@ -813,19 +814,19 @@ footer a:hover { color: var(--glow); }
     <p style="margin-top:20px;">AURA is a metrics framework that measures the reliability and quality of AI agent output. Like DORA measures software delivery performance through four key metrics, AURA measures agent performance through five: Feature Throughput, Resolution Latency, Deliverable Failure Rate, Recovery Efficiency, and Spec Conformance.</p>
 
     <div class="spec-nav">
-      <a href="#spec-terminology">Terminology</a>
-      <a href="#spec-metrics">Metrics</a>
-      <a href="#spec-lifecycle">Lifecycle</a>
-      <a href="#spec-failures">Failures</a>
-      <a href="#spec-data-model">Data Model</a>
-      <a href="#spec-otel">OpenTelemetry</a>
-      <a href="#spec-supporting">Supporting Metrics</a>
-      <a href="#spec-compatibility">Compatibility</a>
-      <a href="#spec-tiers">Tiers</a>
+      <button class="active" onclick="showSpec(this,'spec-terminology')">Terminology</button>
+      <button onclick="showSpec(this,'spec-metrics')">Metrics</button>
+      <button onclick="showSpec(this,'spec-lifecycle')">Lifecycle</button>
+      <button onclick="showSpec(this,'spec-failures')">Failures</button>
+      <button onclick="showSpec(this,'spec-data-model')">Data Model</button>
+      <button onclick="showSpec(this,'spec-otel')">OpenTelemetry</button>
+      <button onclick="showSpec(this,'spec-supporting')">Supporting Metrics</button>
+      <button onclick="showSpec(this,'spec-compatibility')">Compatibility</button>
+      <button onclick="showSpec(this,'spec-tiers')">Tiers</button>
     </div>
 
     <!-- ── Terminology ── -->
-    <div id="spec-terminology" class="spec-block fade-in">
+    <div id="spec-terminology" class="spec-block active fade-in">
       <h3>1. Terminology</h3>
       <dl class="spec-dl">
         <dt>Deliverable</dt>
@@ -1337,12 +1338,11 @@ const observer = new IntersectionObserver(
 );
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-function switchTab(event, tabId) {
-  const container = event.target.closest('.spec-block');
-  container.querySelectorAll('.spec-tab').forEach(t => t.classList.remove('active'));
-  container.querySelectorAll('.spec-tab-content').forEach(c => c.classList.remove('active'));
-  event.target.classList.add('active');
-  document.getElementById(tabId).classList.add('active');
+function showSpec(btn, id) {
+  btn.closest('.spec-nav').querySelectorAll('button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.spec-block').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
 }
 </script>
 </body>
