@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AURA — DORA for pipelines. AURA for agents.</title>
-<meta name="description" content="AURA: Five key metrics for AI agent performance, built on OpenTelemetry. Five key metrics for AI agent performance, built on OpenTelemetry.">
+<meta name="description" content="AURA: Five key metrics for AI agent performance, built on OpenTelemetry. DORA for pipelines. AURA for agents.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -417,19 +417,86 @@ footer a:hover { color: var(--glow); }
 @media (max-width: 768px) {
   .container { padding: 0 20px; }
   section { padding: 64px 0; }
-  .problem-grid, .metrics-grid, .metrics-grid.two-col, .principles { grid-template-columns: 1fr; }
-  .dimension-grid { grid-template-columns: repeat(2, 1fr); }
-  .insight-box { padding: 28px; }
+  nav { padding: 12px 16px; }
   nav .nav-links { display: none; }
-  .hero { padding: 100px 0 60px; min-height: auto; }
-  .spec-table { font-size: 0.8rem; }
-  .spec-table th, .spec-table td { padding: 8px 10px; }
-  .spec-code { font-size: 0.72rem; padding: 14px 16px; }
-  .spec-lifecycle { font-size: 0.75rem; }
+
+  /* Hero */
+  .hero { padding: 80px 0 48px; min-height: auto; }
+  .hero-eyebrow { font-size: 0.7rem; margin-bottom: 20px; }
+  .hero-sub { font-size: 1.15rem; margin: 20px 0 32px; }
+  .hero-cta { gap: 10px; }
+  .btn { padding: 12px 20px; font-size: 0.75rem; }
+
+  /* Grids */
+  .problem-grid, .metrics-grid, .metrics-grid.two-col, .principles { grid-template-columns: 1fr; }
+  .dimension-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Cards */
+  .problem-card { padding: 24px; }
+  .insight-box { padding: 24px; }
+  .insight-box h3 { font-size: 1.5rem; }
+  .hierarchy { font-size: 0.7rem; padding: 16px; overflow-x: auto; line-height: 1.8; }
+  .metric-card { padding: 28px 20px; }
+  .dimension { padding: 18px 12px; }
+  .dimension-weight { font-size: 1.8rem; }
+  .dimension-name { font-size: 0.78rem; }
+  .dimension-desc { font-size: 0.72rem; }
+
+  /* Comparison table */
+  .comparison { -webkit-overflow-scrolling: touch; }
+  .comparison table { font-size: 0.8rem; min-width: 480px; }
+  .comparison th, .comparison td { padding: 10px 12px; }
+
+  /* Architecture */
+  .arch-diagram { padding: 20px; }
+  .arch-layer { flex-wrap: wrap; gap: 8px; padding: 10px 0; }
+  .arch-layer .desc { font-size: 0.78rem; }
+
+  /* Principles */
+  .principle { padding: 20px; }
+  .principle h3 { font-size: 0.95rem; }
+  .principle p { font-size: 0.85rem; }
+
+  /* CTA */
+  .cta-section { padding: 80px 0; }
+  .cta-actions { flex-direction: column; align-items: center; }
+
+  /* Spec section */
+  .spec-block h3 { font-size: 1.3rem; }
   .spec-nav { gap: 6px; }
   .spec-nav a { font-size: 0.65rem; padding: 5px 10px; }
-  .spec-supporting-card { padding: 18px 20px; }
-  .spec-relationship-map { font-size: 0.65rem; padding: 18px 16px; }
+  .spec-table { font-size: 0.8rem; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .spec-table th, .spec-table td { padding: 8px 10px; }
+  .spec-code { font-size: 0.68rem; padding: 14px 12px; }
+  .spec-formula { font-size: 0.72rem; padding: 10px 14px; }
+  .spec-lifecycle { font-size: 0.72rem; gap: 4px; padding: 16px; }
+  .spec-lifecycle .phase { padding: 4px 10px; font-size: 0.68rem; }
+  .spec-supporting-card { padding: 18px 16px; }
+  .spec-supporting-card h4 { font-size: 0.88rem; }
+  .spec-supporting-card .feeds { font-size: 0.62rem; }
+  .spec-supporting-card p { font-size: 0.88rem; }
+  .spec-relationship-map { font-size: 0.58rem; padding: 14px 12px; line-height: 1.6; }
+  .spec-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .spec-tab { padding: 8px 14px; font-size: 0.65rem; white-space: nowrap; }
+  .spec-dl dd { font-size: 0.85rem; }
+  .spec-version-info { flex-wrap: wrap; gap: 10px; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  h1 { font-size: clamp(2.4rem, 10vw, 3.2rem); }
+  h2 { font-size: clamp(1.6rem, 5vw, 2rem); }
+  .hero { padding: 72px 0 40px; }
+  .hero-cta { flex-direction: column; }
+  .hero-cta .btn { width: 100%; justify-content: center; }
+  .dimension-grid { grid-template-columns: 1fr; }
+  .arch-diagram { padding: 16px; }
+  .arch-layer .tag { font-size: 0.62rem; }
+  .arch-layer .desc { font-size: 0.72rem; }
+  .spec-relationship-map { font-size: 0.5rem; padding: 12px 8px; }
+  .comparison table { min-width: 420px; }
+  .spec-lifecycle { flex-direction: column; align-items: stretch; text-align: center; }
+  .spec-lifecycle .arrow { display: none; }
 }
 </style>
 </head>
@@ -722,7 +789,7 @@ footer a:hover { color: var(--glow); }
       <span style="font-family:var(--mono);font-size:0.72rem;color:var(--text-dim);">Apache 2.0</span>
       <a href="https://github.com/aura-metrics/aura-metrics-specification" style="font-family:var(--mono);font-size:0.72rem;color:var(--glow-dim);text-decoration:none;">GitHub →</a>
     </div>
-    <p style="margin-top:20px;">AURA (Agent Understanding, Reliability, and Accountability) is a metrics framework that measures the reliability and quality of AI agent output. Like DORA measures software delivery performance through four key metrics, AURA measures agent performance through five: Feature Throughput, Resolution Latency, Deliverable Failure Rate, Recovery Efficiency, and Spec Conformance.</p>
+    <p style="margin-top:20px;">AURA is a metrics framework that measures the reliability and quality of AI agent output. Like DORA measures software delivery performance through four key metrics, AURA measures agent performance through five: Feature Throughput, Resolution Latency, Deliverable Failure Rate, Recovery Efficiency, and Spec Conformance.</p>
 
     <nav class="spec-nav">
       <a href="#spec-terminology">Terminology</a>
