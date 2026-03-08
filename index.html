@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AURA — DORA for pipelines. AURA for agents.</title>
-<meta name="description" content="AURA: Five key metrics for AI agent performance, built on OpenTelemetry. DORA for pipelines. AURA for agents.">
+<meta name="description" content="AURA: Four key metrics for AI agent performance, built on OpenTelemetry. DORA for pipelines. AURA for agents.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -211,13 +211,9 @@ h1 .glow {
 .metrics-header p { margin: 0; }
 
 .metrics-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
+  display: grid; grid-template-columns: repeat(2, 1fr);
   gap: 1px; background: var(--border-subtle);
   border-radius: 14px; overflow: hidden;
-}
-.metrics-grid.two-col {
-  grid-template-columns: repeat(2, 1fr);
-  max-width: 733px; margin: 1px auto 0;
 }
 .metric-card {
   background: var(--bg-card); padding: 36px 32px;
@@ -460,7 +456,7 @@ footer a:hover { color: var(--glow); }
   .btn { padding: 12px 20px; font-size: 0.75rem; }
 
   /* Grids */
-  .problem-grid, .metrics-grid, .metrics-grid.two-col, .principles { grid-template-columns: 1fr; }
+  .problem-grid, .metrics-grid, .principles { grid-template-columns: 1fr; }
   .dimension-grid { grid-template-columns: 1fr 1fr; }
 
   /* Cards */
@@ -545,7 +541,7 @@ footer a:hover { color: var(--glow); }
   <a href="#" class="logo"><span>AURA</span></a>
   <ul class="nav-links">
     <li><a href="#problem">The Problem</a></li>
-    <li><a href="#metrics">The 5 Metrics</a></li>
+    <li><a href="#metrics">The 4 Metrics</a></li>
     <li><a href="#specification">Specification</a></li>
     <li><a href="#implementation">Get Involved</a></li>
     <li><a href="#origin">Origin</a></li>
@@ -566,10 +562,10 @@ footer a:hover { color: var(--glow); }
     </h1>
     <p class="hero-sub">
       DORA for pipelines. AURA for agents.<br>
-      Five metrics. Built on OpenTelemetry.
+      Four metrics. Built on OpenTelemetry.
     </p>
     <div class="hero-cta">
-      <a href="#metrics" class="btn btn-primary">The five metrics ↓</a>
+      <a href="#metrics" class="btn btn-primary">The four metrics ↓</a>
       <a href="https://github.com/orgs/aura-metrics/discussions" class="btn btn-ghost" target="_blank" rel="noopener">Join the discussion →</a>
     </div>
   </div>
@@ -623,8 +619,7 @@ footer a:hover { color: var(--glow); }
         │&nbsp;&nbsp;&nbsp;├── LLM calls<br>
         │&nbsp;&nbsp;&nbsp;├── Tool calls<br>
         │&nbsp;&nbsp;&nbsp;└── Reasoning steps<br>
-        └── <span class="hl">Outcome</span><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <span class="hl">Delivery Completeness</span> <span class="dim">← how well did it match?</span>
+        └── <span class="hl">Outcome</span>
       </div>
     </div>
   </div>
@@ -641,7 +636,7 @@ footer a:hover { color: var(--glow); }
       <div class="principle"><div class="principle-num">03</div><h3>The spec is the source of truth</h3><p>Without a spec, you can't measure quality. AURA makes specs explicit.</p></div>
       <div class="principle"><div class="principle-num">04</div><h3>Metrics drive conversations</h3><p>Not leaderboards. Not punishments. Conversations about where to improve.</p></div>
       <div class="principle"><div class="principle-num">05</div><h3>Build on existing standards</h3><p>OTel GenAI semantic conventions. Your infrastructure already works.</p></div>
-      <div class="principle"><div class="principle-num">06</div><h3>Start simple, go deep</h3><p>Five headline metrics tell the story. Supporting metrics tell you why.</p></div>
+      <div class="principle"><div class="principle-num">06</div><h3>Start simple, go deep</h3><p>Four headline metrics tell the story. Supporting metrics tell you why.</p></div>
     </div>
   </div>
 </section>
@@ -661,15 +656,15 @@ footer a:hover { color: var(--glow); }
 <section id="metrics">
   <div class="container">
     <div class="metrics-header">
-      <span class="label">The five metrics</span>
-      <h2>Throughput · Stability · Quality</h2>
-      <p>Like DORA, AURA captures the tension between speed and stability. Unlike DORA, it adds a quality dimension unique to AI.</p>
+      <span class="label">The four metrics</span>
+      <h2>Throughput · Stability</h2>
+      <p>Like DORA, AURA captures the tension between speed and stability.</p>
     </div>
 
     <div class="metrics-grid fade-in" style="margin-bottom:1px;">
       <div class="metric-card">
         <div class="metric-number">01 · Throughput</div>
-        <div class="metric-name">Feature Throughput</div>
+        <div class="metric-name">Feature Frequency</div>
 
         <div class="metric-desc">Deliverables accepted per time period. Measures productivity at the level humans care about.</div>
         <div class="tiers">
@@ -681,7 +676,7 @@ footer a:hover { color: var(--glow); }
       </div>
       <div class="metric-card">
         <div class="metric-number">02 · Throughput</div>
-        <div class="metric-name">Resolution Latency</div>
+        <div class="metric-name">Feature Lead Time</div>
 
         <div class="metric-desc">Spec received to verified deliverable. Includes planning, execution, validation, and rework.</div>
         <div class="tiers">
@@ -693,9 +688,9 @@ footer a:hover { color: var(--glow); }
       </div>
       <div class="metric-card">
         <div class="metric-number">03 · Stability</div>
-        <div class="metric-name">Deliverable Failure Rate</div>
+        <div class="metric-name">Human Intervention Rate</div>
 
-        <div class="metric-desc">Percentage of deliverables that fail spec, require human takeover, or are abandoned.</div>
+        <div class="metric-desc">Percentage of deliverables that required human takeover or were abandoned without completion.</div>
         <div class="tiers">
           <div class="tier elite"><span class="tier-label">Elite</span><span class="tier-value">&lt;5%</span></div>
           <div class="tier"><span class="tier-label">High</span><span class="tier-value">5–15%</span></div>
@@ -703,9 +698,6 @@ footer a:hover { color: var(--glow); }
           <div class="tier"><span class="tier-label">Low</span><span class="tier-value">&gt;30%</span></div>
         </div>
       </div>
-    </div>
-
-    <div class="metrics-grid two-col fade-in">
       <div class="metric-card">
         <div class="metric-number">04 · Stability</div>
         <div class="metric-name">Recovery Efficiency</div>
@@ -718,45 +710,6 @@ footer a:hover { color: var(--glow); }
           <div class="tier"><span class="tier-label">Low</span><span class="tier-value">&gt;50%</span></div>
         </div>
       </div>
-      <div class="metric-card">
-        <div class="metric-number" style="color:var(--glow);">05 · Quality — Unique to AURA</div>
-        <div class="metric-name">Delivery Completeness</div>
-
-        <div class="metric-desc">How completely did the agent deliver what was asked? A percentage score from 0–100% across functional, correctness, and constraint dimensions.</div>
-        <div class="tiers">
-          <div class="tier elite"><span class="tier-label">Elite</span><span class="tier-value">&gt;95%</span></div>
-          <div class="tier"><span class="tier-label">High</span><span class="tier-value">80–95%</span></div>
-          <div class="tier"><span class="tier-label">Medium</span><span class="tier-value">60–80%</span></div>
-          <div class="tier"><span class="tier-label">Low</span><span class="tier-value">&lt;60%</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div style="margin-top: 48px;" class="fade-in">
-      <h3 style="text-align:center; margin-bottom:8px;">Completeness Dimensions</h3>
-      <p style="text-align:center; margin:0 auto;">Four weighted dimensions that capture how completely and accurately the agent delivered.</p>
-      <div class="dimension-grid">
-        <div class="dimension">
-          <div class="dimension-weight">40%</div>
-          <div class="dimension-name">Functional Completeness</div>
-          <div class="dimension-desc">Did it do everything<br>the spec asked?</div>
-        </div>
-        <div class="dimension">
-          <div class="dimension-weight">30%</div>
-          <div class="dimension-name">Correctness</div>
-          <div class="dimension-desc">Is the output factually<br>and logically right?</div>
-        </div>
-        <div class="dimension">
-          <div class="dimension-weight">20%</div>
-          <div class="dimension-name">Constraint Adherence</div>
-          <div class="dimension-desc">Did it respect boundaries,<br>formats, and limits?</div>
-        </div>
-        <div class="dimension">
-          <div class="dimension-weight">10%</div>
-          <div class="dimension-name">Iteration Count</div>
-          <div class="dimension-desc">How many attempts<br>to get it right?</div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -766,18 +719,17 @@ footer a:hover { color: var(--glow); }
   <div class="container">
     <span class="label">Side by side</span>
     <h2>DORA → AURA</h2>
-    <p>Same structure. Different domain. One new dimension.</p>
+    <p>Same structure. Different domain.</p>
     <div class="comparison fade-in">
       <table>
         <thead><tr><th>Aspect</th><th>DORA</th><th>AURA</th></tr></thead>
         <tbody>
           <tr><td>Domain</td><td>Software delivery</td><td class="glow-cell">AI agent performance</td></tr>
           <tr><td>Unit</td><td>Deployment</td><td class="glow-cell">Deliverable (against spec)</td></tr>
-          <tr><td>Throughput 1</td><td>Deployment Frequency</td><td class="glow-cell">Feature Throughput</td></tr>
-          <tr><td>Throughput 2</td><td>Lead Time</td><td class="glow-cell">Resolution Latency</td></tr>
-          <tr><td>Stability 1</td><td>Change Failure Rate</td><td class="glow-cell">Deliverable Failure Rate</td></tr>
+          <tr><td>Throughput 1</td><td>Deployment Frequency</td><td class="glow-cell">Feature Frequency</td></tr>
+          <tr><td>Throughput 2</td><td>Lead Time</td><td class="glow-cell">Feature Lead Time</td></tr>
+          <tr><td>Stability 1</td><td>Change Failure Rate</td><td class="glow-cell">Human Intervention Rate</td></tr>
           <tr><td>Stability 2</td><td>MTTR</td><td class="glow-cell">Recovery Efficiency</td></tr>
-          <tr><td>Quality</td><td style="color:var(--text-dim)">—</td><td class="glow-cell">Delivery Completeness</td></tr>
           <tr><td>Data source</td><td>CI/CD pipelines</td><td class="glow-cell">OpenTelemetry traces</td></tr>
         </tbody>
       </table>
@@ -795,7 +747,7 @@ footer a:hover { color: var(--glow); }
       <span style="font-family:var(--mono);font-size:0.72rem;color:var(--text-dim);">MIT</span>
       <a href="https://github.com/aura-metrics/aura-metrics-specification" style="font-family:var(--mono);font-size:0.72rem;color:var(--glow-dim);text-decoration:none;">GitHub →</a>
     </div>
-    <p style="margin-top:20px;">AURA is a metrics framework that measures the reliability and quality of AI agent output. Like DORA measures software delivery performance through four key metrics, AURA measures agent performance through five: Feature Throughput, Resolution Latency, Deliverable Failure Rate, Recovery Efficiency, and Delivery Completeness.</p>
+    <p style="margin-top:20px;">AURA is a metrics framework that measures the reliability and performance of AI agent output. Like DORA measures software delivery performance through four key metrics, AURA measures agent performance through four: Feature Frequency, Feature Lead Time, Human Intervention Rate, and Recovery Efficiency.</p>
 
     <div class="spec-nav">
       <button class="active" onclick="showSpec(this,'spec-terminology')">Terminology</button>
@@ -819,8 +771,6 @@ footer a:hover { color: var(--glow); }
         <dd>The acceptance criteria for a deliverable. Can come from any source — an OpenSpec change folder, a Jira ticket, a markdown file, a plain text prompt. The spec defines what "done" means.</dd>
         <dt>Phase</dt>
         <dd>A stage in the deliverable lifecycle. The canonical phases are: <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">propose</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">specs</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">design</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">tasks</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">apply</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">verify</code>, <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">archive</code>. Not all phases are required for every deliverable.</dd>
-        <dt>Delivery Completeness</dt>
-        <dd>How completely a deliverable met its spec, expressed as a percentage (0–100%). Captures quality beyond binary pass/fail — a deliverable can be accepted but still partially complete.</dd>
         <dt>Recovery</dt>
         <dd>A rework cycle triggered by a failure during execution. When verification fails and the agent retries, that retry is a recovery attempt.</dd>
       </dl>
@@ -828,9 +778,9 @@ footer a:hover { color: var(--glow); }
 
     <!-- ── Metrics ── -->
     <div id="spec-metrics" class="spec-block fade-in">
-      <h3>The Five Metrics</h3>
+      <h3>The Four Metrics</h3>
 
-      <h4>2.1 Feature Throughput</h4>
+      <h4>2.1 Feature Frequency</h4>
       <p>The number of deliverables accepted per unit time.</p>
       <div class="spec-formula">count(deliverables where status = "accepted") / time_period</div>
       <table class="spec-table">
@@ -843,7 +793,7 @@ footer a:hover { color: var(--glow); }
         </tbody>
       </table>
 
-      <h4>2.2 Resolution Latency</h4>
+      <h4>2.2 Feature Lead Time</h4>
       <p>Wall-clock time from spec received to deliverable accepted. Includes planning, execution, and verification.</p>
       <div class="spec-formula">accepted_at - started_at</div>
       <table class="spec-table">
@@ -857,9 +807,9 @@ footer a:hover { color: var(--glow); }
       </table>
       <p>Includes human review time. To isolate agent time, subtract human wait phases from the total.</p>
 
-      <h4>2.3 Deliverable Failure Rate</h4>
-      <p>Percentage of deliverables that fail spec conformance.</p>
-      <div class="spec-formula">count(failed) / count(deliverables) × 100</div>
+      <h4>2.3 Human Intervention Rate</h4>
+      <p>Percentage of deliverables that required human takeover or were abandoned without completion.</p>
+      <div class="spec-formula">count(human_takeover or abandoned) / count(deliverables) × 100</div>
       <table class="spec-table">
         <thead><tr><th>Tier</th><th>Threshold</th></tr></thead>
         <tbody>
@@ -869,7 +819,7 @@ footer a:hover { color: var(--glow); }
           <tr><td>Low</td><td>≥15%</td></tr>
         </tbody>
       </table>
-      <p>A deliverable that required recovery but eventually passed is NOT failed. Only deliverables abandoned or accepted below the conformance threshold are failed.</p>
+      <p>A deliverable that required agent self-correction (recovery) but completed without human involvement is NOT counted. Only deliverables where a human stepped in or the work was abandoned are counted.</p>
 
       <h4>2.4 Recovery Efficiency</h4>
       <p>The proportion of total effort spent on rework and retries.</p>
@@ -884,29 +834,6 @@ footer a:hover { color: var(--glow); }
         </tbody>
       </table>
 
-      <h4>2.5 Delivery Completeness</h4>
-      <p>A weighted quality score measuring how well an accepted deliverable matches its spec.</p>
-      <div class="spec-formula">(0.4 × functional) + (0.3 × correctness) + (0.2 × constraints) + (0.1 × iteration_penalty)</div>
-      <table class="spec-table">
-        <thead><tr><th>Tier</th><th>Threshold</th></tr></thead>
-        <tbody>
-          <tr><td class="hl">Elite</td><td>≥95%</td></tr>
-          <tr><td>High</td><td>≥85%</td></tr>
-          <tr><td>Medium</td><td>≥70%</td></tr>
-          <tr><td>Low</td><td>&lt;0.70</td></tr>
-        </tbody>
-      </table>
-
-      <h4>2.5.1 Completeness Dimensions</h4>
-      <table class="spec-table">
-        <thead><tr><th>Dimension</th><th>Weight</th><th>Calculation</th></tr></thead>
-        <tbody>
-          <tr><td>Functional Completeness</td><td>0.4</td><td style="color:var(--text-muted)">completed_requirements / total_requirements</td></tr>
-          <tr><td>Correctness</td><td>0.3</td><td style="color:var(--text-muted)">Binary or scored by validation</td></tr>
-          <tr><td>Constraint Adherence</td><td>0.2</td><td style="color:var(--text-muted)">1.0 - (0.1 × constraint_violations), floor 0.0</td></tr>
-          <tr><td>Iteration Penalty</td><td>0.1</td><td style="color:var(--text-muted)">max(0, 1.0 - (0.15 × (iterations - 1)))</td></tr>
-        </tbody>
-      </table>
     </div>
 
     <!-- ── Lifecycle ── -->
@@ -1088,9 +1015,6 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
 │   │   └── aura.tool.call
 │   └── aura.recovery.attempt
 ├── aura.deliverable.validate
-│   ├── aura.completeness.functional
-│   ├── aura.completeness.correctness
-│   └── aura.completeness.constraints
 └── aura.deliverable.accept</div>
 
       <h4>Semantic Attributes</h4>
@@ -1106,11 +1030,6 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
           <tr><td>aura.spec.requirements_count</td><td style="color:var(--text-muted)">int</td><td style="color:var(--text-dim)">Number of requirements extracted</td></tr>
           <tr><td>aura.phase.name</td><td style="color:var(--text-muted)">string</td><td style="color:var(--text-dim)">Current phase name</td></tr>
           <tr><td>aura.phase.iteration</td><td style="color:var(--text-muted)">int</td><td style="color:var(--text-dim)">Phase iteration count</td></tr>
-          <tr><td>aura.completeness.functional</td><td style="color:var(--text-muted)">double</td><td style="color:var(--text-dim)">Functional completeness (0–100%)</td></tr>
-          <tr><td>aura.completeness.correctness</td><td style="color:var(--text-muted)">double</td><td style="color:var(--text-dim)">Correctness score (0–100%)</td></tr>
-          <tr><td>aura.completeness.constraints</td><td style="color:var(--text-muted)">double</td><td style="color:var(--text-dim)">Constraint adherence (0–100%)</td></tr>
-          <tr><td>aura.completeness.iteration_penalty</td><td style="color:var(--text-muted)">double</td><td style="color:var(--text-dim)">Iteration penalty (0–100%)</td></tr>
-          <tr><td>aura.completeness.overall</td><td style="color:var(--text-muted)">double</td><td style="color:var(--text-dim)">Weighted overall score (0–100%)</td></tr>
           <tr><td>aura.failure.type</td><td style="color:var(--text-muted)">string</td><td style="color:var(--text-dim)">Failure classification</td></tr>
           <tr><td>aura.recovery.attempt</td><td style="color:var(--text-muted)">int</td><td style="color:var(--text-dim)">Current recovery attempt number</td></tr>
           <tr><td>aura.recovery.total</td><td style="color:var(--text-muted)">int</td><td style="color:var(--text-dim)">Total recovery attempts</td></tr>
@@ -1128,7 +1047,6 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
           <tr><td>aura.deliverables.accepted</td><td style="color:var(--text-muted)">Counter</td><td style="color:var(--text-dim)">{deliverable}</td><td style="color:var(--text-dim)">Deliverables accepted</td></tr>
           <tr><td>aura.deliverables.failed</td><td style="color:var(--text-muted)">Counter</td><td style="color:var(--text-dim)">{deliverable}</td><td style="color:var(--text-dim)">Deliverables failed</td></tr>
           <tr><td>aura.resolution_latency</td><td style="color:var(--text-muted)">Histogram</td><td style="color:var(--text-dim)">s</td><td style="color:var(--text-dim)">Resolution latency distribution</td></tr>
-          <tr><td>aura.completeness.score</td><td style="color:var(--text-muted)">Histogram</td><td style="color:var(--text-dim)">1</td><td style="color:var(--text-dim)">Conformance score distribution</td></tr>
           <tr><td>aura.recovery.attempts</td><td style="color:var(--text-muted)">Histogram</td><td style="color:var(--text-dim)">{attempt}</td><td style="color:var(--text-dim)">Recovery attempts per deliverable</td></tr>
           <tr><td>aura.tool_calls.count</td><td style="color:var(--text-muted)">Counter</td><td style="color:var(--text-dim)">{call}</td><td style="color:var(--text-dim)">Total tool calls</td></tr>
         </tbody>
@@ -1155,30 +1073,30 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
     <!-- ── Supporting Metrics ── -->
     <div id="spec-supporting" class="spec-block fade-in">
       <h3>Supporting Metrics</h3>
-      <p>The five headline metrics tell you <em>what's happening</em>. The supporting metrics tell you <em>why</em>. Every supporting metric feeds at least one headline metric — when a headline goes red, you drill into the supporting metrics to find the cause.</p>
+      <p>The four headline metrics tell you <em>what's happening</em>. The supporting metrics tell you <em>why</em>. Every supporting metric feeds at least one headline metric — when a headline goes red, you drill into the supporting metrics to find the cause.</p>
 
       <div class="spec-supporting-card">
         <h4>Token Usage</h4>
-        <div class="feeds">Feeds → Recovery Efficiency, Feature Throughput</div>
-        <p>Total input tokens, output tokens, cost per deliverable. If an agent uses 50k tokens on a deliverable that should take 10k, the extra 40k is recovery overhead. It also contextualises Feature Throughput — are you shipping more because the agent is efficient, or because it's brute-forcing with expensive models? Token cost per deliverable is the unit economics metric teams will care about most once they're past the "does it work" phase.</p>
+        <div class="feeds">Feeds → Recovery Efficiency, Feature Frequency</div>
+        <p>Total input tokens, output tokens, cost per deliverable. If an agent uses 50k tokens on a deliverable that should take 10k, the extra 40k is recovery overhead. It also contextualises Feature Frequency — are you shipping more because the agent is efficient, or because it's brute-forcing with expensive models? Token cost per deliverable is the unit economics metric teams will care about most once they're past the "does it work" phase.</p>
       </div>
 
       <div class="spec-supporting-card">
         <h4>Tool Call Count</h4>
-        <div class="feeds">Feeds → Recovery Efficiency, Resolution Latency</div>
+        <div class="feeds">Feeds → Recovery Efficiency, Feature Lead Time</div>
         <p>Counts by type: Write, Edit, Bash, Read, etc. A healthy deliverable has a predictable ratio of reads to writes. If you see 40 Read calls and 2 Writes, the agent spent most of its time searching. If you see 15 Write calls and 12 Edit calls on the same files, it's rewriting its own work. The pattern tells you where the agent is struggling.</p>
       </div>
 
       <div class="spec-supporting-card">
         <h4>Phase Duration</h4>
-        <div class="feeds">Feeds → Resolution Latency</div>
-        <p>Time spent in each phase: propose, specs, design, tasks, apply, verify. This decomposes Resolution Latency into its parts. A 4-hour deliverable where 3.5 hours was in <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">apply</code> is very different from one where 2 hours was human review during <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">verify</code>. This is where you find the bottleneck — is the agent slow, or is the human slow to review?</p>
+        <div class="feeds">Feeds → Feature Lead Time</div>
+        <p>Time spent in each phase: propose, specs, design, tasks, apply, verify. This decomposes Feature Lead Time into its parts. A 4-hour deliverable where 3.5 hours was in <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">apply</code> is very different from one where 2 hours was human review during <code style="color:var(--glow);font-family:var(--mono);font-size:0.85em;">verify</code>. This is where you find the bottleneck — is the agent slow, or is the human slow to review?</p>
       </div>
 
       <div class="spec-supporting-card">
         <h4>Apply Iterations</h4>
-        <div class="feeds">Feeds → Delivery Completeness, Recovery Efficiency</div>
-        <p>How many times the apply phase ran before acceptance. The most direct indicator feeding Delivery Completeness and Recovery Efficiency. First-time-right deliverables score higher on conformance (via the iteration penalty) and have zero recovery overhead. Tracking the count over time tells you if your agent is getting better or worse.</p>
+        <div class="feeds">Feeds → Recovery Efficiency</div>
+        <p>How many times the apply phase ran before acceptance. First-time-right deliverables have zero recovery overhead. Tracking the count over time tells you if your agent is getting better or worse at completing work without rework.</p>
       </div>
 
       <div class="spec-supporting-card">
@@ -1188,58 +1106,48 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
       </div>
 
       <div class="spec-supporting-card">
-        <h4>Tasks Completed vs Total</h4>
-        <div class="feeds">Feeds → Delivery Completeness</div>
-        <p>From the spec's task checklist. The raw input to the functional completeness dimension of Delivery Completeness. Useful on its own as a progress metric during execution — it answers "how far did the agent get" for both in-progress and failed deliverables.</p>
-      </div>
-
-      <div class="spec-supporting-card">
         <h4>Failure Type Distribution</h4>
-        <div class="feeds">Feeds → Deliverable Failure Rate</div>
-        <p>Breakdown across: spec_misunderstanding, hallucination, infinite_loop, tool_failure, constraint_violation, incomplete, regression. Categorises <em>why</em> deliverables fail, which the Deliverable Failure Rate alone can't tell you. A 12% failure rate means very different things if it's all tool failures (infrastructure problem) versus all hallucinations (model problem). This is the metric that tells you where to invest.</p>
+        <div class="feeds">Feeds → Human Intervention Rate</div>
+        <p>Breakdown across: spec_misunderstanding, hallucination, infinite_loop, tool_failure, constraint_violation, incomplete, regression. Categorises <em>why</em> humans had to intervene or deliverables were abandoned. A 12% intervention rate means very different things if it's all tool failures (infrastructure problem) versus all hallucinations (model problem). This is the metric that tells you where to invest.</p>
       </div>
 
       <div class="spec-supporting-card">
         <h4>Human Intervention Count</h4>
-        <div class="feeds">Feeds → Recovery Efficiency, Delivery Completeness</div>
+        <div class="feeds">Feeds → Human Intervention Rate, Recovery Efficiency</div>
         <p>Times a human had to step in during execution. An agent that completes every deliverable but needs 5 human nudges per run isn't really autonomous. This metric tracks the journey toward full autonomy.</p>
       </div>
 
       <div class="spec-supporting-card">
         <h4>Complexity Distribution</h4>
-        <div class="feeds">Feeds → Feature Throughput, Resolution Latency</div>
-        <p>Trivial/simple/moderate/complex breakdown of deliverables. Contextualises Feature Throughput and Resolution Latency. Shipping 10 trivial deliverables/day is not the same as shipping 2 complex ones. Without this, you can game throughput by splitting work into tiny pieces.</p>
+        <div class="feeds">Feeds → Feature Frequency, Feature Lead Time</div>
+        <p>Trivial/simple/moderate/complex breakdown of deliverables. Contextualises Feature Frequency and Feature Lead Time. Shipping 10 trivial deliverables/day is not the same as shipping 2 complex ones. Without this, you can game throughput by splitting work into tiny pieces.</p>
       </div>
 
       <h4>The Relationship Map</h4>
-      <p>Every supporting metric feeds at least one headline metric, and most feed two. Look at the five headlines on a dashboard — when one goes red, drill into the supporting metrics to find the cause.</p>
+      <p>Every supporting metric feeds at least one headline metric, and most feed two. Look at the four headlines on a dashboard — when one goes red, drill into the supporting metrics to find the cause.</p>
       <div class="spec-relationship-map"><span class="supporting">Token Usage</span> <span class="connector">──────────┐</span>
 <span class="supporting">Tool Call Count</span> <span class="connector">──────┼──→</span> <span class="headline">Recovery Efficiency</span>
 <span class="supporting">Recovery Attempts</span> <span class="connector">────┘</span>
                            <span class="connector">↕</span>
-<span class="supporting">Phase Duration</span> <span class="connector">───────────→</span> <span class="headline">Resolution Latency</span>
+<span class="supporting">Phase Duration</span> <span class="connector">───────────→</span> <span class="headline">Feature Lead Time</span>
                            <span class="connector">↕</span>
-<span class="supporting">Apply Iterations</span> <span class="connector">─────┐</span>
-<span class="supporting">Tasks Completed</span> <span class="connector">──────┼──→</span> <span class="headline">Delivery Completeness</span>
-<span class="supporting">Human Interventions</span> <span class="connector">──┘</span>
+<span class="supporting">Failure Type</span> <span class="connector">──────────────┐</span>
+<span class="supporting">Human Interventions</span> <span class="connector">────┴──→</span> <span class="headline">Human Intervention Rate</span>
                            <span class="connector">↕</span>
-<span class="supporting">Failure Type</span> <span class="connector">─────────────→</span> <span class="headline">Deliverable Failure Rate</span>
-                           <span class="connector">↕</span>
-<span class="supporting">Complexity Distribution</span> <span class="connector">──→</span> <span class="headline">Feature Throughput</span></div>
+<span class="supporting">Complexity Distribution</span> <span class="connector">──→</span> <span class="headline">Feature Frequency</span></div>
     </div>
 
     <!-- ── Tiers ── -->
     <div id="spec-tiers" class="spec-block fade-in">
       <h3>Performance Tiers</h3>
-      <p>Summary of all performance tiers across the five metrics. Tier classification uses the most recent rolling window — recommended default is 7 days or 20 deliverables, whichever comes first.</p>
+      <p>Summary of all performance tiers across the four metrics. Tier classification uses the most recent rolling window — recommended default is 7 days or 20 deliverables, whichever comes first.</p>
       <table class="spec-table">
         <thead><tr><th>Metric</th><th class="hl">Elite</th><th>High</th><th>Medium</th><th>Low</th></tr></thead>
         <tbody>
-          <tr><td>Feature Throughput</td><td class="hl">≥3/day</td><td style="color:var(--text-muted)">≥1/day</td><td style="color:var(--text-muted)">≥1/week</td><td style="color:var(--text-dim)">&lt;1/week</td></tr>
-          <tr><td>Resolution Latency</td><td class="hl">&lt;1 hour</td><td style="color:var(--text-muted)">&lt;4 hours</td><td style="color:var(--text-muted)">&lt;1 day</td><td style="color:var(--text-dim)">≥1 day</td></tr>
-          <tr><td>Deliverable Failure Rate</td><td class="hl">&lt;5%</td><td style="color:var(--text-muted)">&lt;10%</td><td style="color:var(--text-muted)">&lt;15%</td><td style="color:var(--text-dim)">≥15%</td></tr>
+          <tr><td>Feature Frequency</td><td class="hl">≥3/day</td><td style="color:var(--text-muted)">≥1/day</td><td style="color:var(--text-muted)">≥1/week</td><td style="color:var(--text-dim)">&lt;1/week</td></tr>
+          <tr><td>Feature Lead Time</td><td class="hl">&lt;1 hour</td><td style="color:var(--text-muted)">&lt;4 hours</td><td style="color:var(--text-muted)">&lt;1 day</td><td style="color:var(--text-dim)">≥1 day</td></tr>
+          <tr><td>Human Intervention Rate</td><td class="hl">&lt;5%</td><td style="color:var(--text-muted)">&lt;10%</td><td style="color:var(--text-muted)">&lt;15%</td><td style="color:var(--text-dim)">≥15%</td></tr>
           <tr><td>Recovery Efficiency</td><td class="hl">&lt;5%</td><td style="color:var(--text-muted)">&lt;10%</td><td style="color:var(--text-muted)">&lt;20%</td><td style="color:var(--text-dim)">≥20%</td></tr>
-          <tr><td>Delivery Completeness</td><td class="hl">≥95%</td><td style="color:var(--text-muted)">≥85%</td><td style="color:var(--text-muted)">≥70%</td><td style="color:var(--text-dim)">&lt;70%</td></tr>
         </tbody>
       </table>
     </div>
@@ -1269,7 +1177,7 @@ python -m jsonschema -i my-output.json schemas/latest/metrics-output.schema.json
     <div class="arch-pipeline fade-in">
       <div class="arch-step"><span class="tag you">YOUR CODE</span><span class="desc">LangChain · CrewAI · AutoGen · PydanticAI · custom</span></div>
       <div class="arch-conn"></div>
-      <div class="arch-step"><span class="tag aura">AURA SDK</span><span class="desc">Deliverable lifecycle · Delivery completeness · Failure classification · Recovery tracking</span></div>
+      <div class="arch-step"><span class="tag aura">AURA SDK</span><span class="desc">Deliverable lifecycle · Failure classification · Recovery tracking</span></div>
       <div class="arch-conn"></div>
       <div class="arch-step"><span class="tag otel">OTEL SDK</span><span class="desc">Traces · Metrics · Events</span></div>
       <div class="arch-conn"></div>
