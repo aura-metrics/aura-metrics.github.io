@@ -444,14 +444,17 @@ footer a:hover { color: var(--glow); }
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .container { padding: 0 20px; }
-  section { padding: 64px 0; }
+  section { padding: 56px 0; }
   nav { padding: 12px 16px; }
   nav .nav-links { display: none; }
 
+  /* Banner */
+  .draft-banner { padding: 10px 20px; gap: 10px; flex-wrap: wrap; }
+
   /* Hero */
-  .hero { padding: 80px 0 48px; min-height: auto; }
+  .hero { padding: 72px 0 40px; min-height: auto; }
   .hero-eyebrow { font-size: 0.7rem; margin-bottom: 20px; }
-  .hero-sub { font-size: 1.15rem; margin: 20px 0 32px; }
+  .hero-sub { font-size: 1.1rem; margin: 16px 0 28px; }
   .hero-cta { gap: 10px; }
   .btn { padding: 12px 20px; font-size: 0.75rem; }
 
@@ -462,13 +465,17 @@ footer a:hover { color: var(--glow); }
   /* Cards */
   .problem-card { padding: 24px; }
   .insight-box { padding: 24px; }
-  .insight-box h3 { font-size: 1.5rem; }
+  .insight-box h3 { font-size: 1.4rem; }
   .hierarchy { font-size: 0.7rem; padding: 16px; overflow-x: auto; line-height: 1.8; }
-  .metric-card { padding: 28px 20px; }
+  .metric-card { padding: 24px 20px; }
   .dimension { padding: 18px 12px; }
   .dimension-weight { font-size: 1.8rem; }
   .dimension-name { font-size: 0.78rem; }
   .dimension-desc { font-size: 0.72rem; }
+  .plugin-card { padding: 24px 20px; }
+
+  /* p */
+  p { max-width: 100%; }
 
   /* Comparison table */
   .comparison { -webkit-overflow-scrolling: touch; }
@@ -476,9 +483,9 @@ footer a:hover { color: var(--glow); }
   .comparison th, .comparison td { padding: 10px 12px; }
 
   /* Architecture */
-  .arch-diagram { padding: 20px; }
-  .arch-layer { flex-wrap: wrap; gap: 8px; padding: 10px 0; }
-  .arch-layer .desc { font-size: 0.78rem; }
+  .arch-pipeline { width: 100%; }
+  .arch-step { grid-template-columns: 130px 1fr; gap: 16px; }
+  .arch-conn { margin-left: 64px; height: 24px; }
 
   /* Principles */
   .principle { padding: 20px; }
@@ -486,7 +493,7 @@ footer a:hover { color: var(--glow); }
   .principle p { font-size: 0.85rem; }
 
   /* CTA */
-  .cta-section { padding: 80px 0; }
+  .cta-section { padding: 72px 0; }
   .cta-actions { flex-direction: column; align-items: center; }
 
   /* Spec section */
@@ -495,7 +502,7 @@ footer a:hover { color: var(--glow); }
   .spec-table { font-size: 0.8rem; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .spec-table th, .spec-table td { padding: 8px 10px; }
   .spec-code { font-size: 0.68rem; padding: 14px 12px; }
-  .spec-formula { font-size: 0.72rem; padding: 10px 14px; }
+  .spec-formula { font-size: 0.72rem; padding: 10px 14px; display: block; overflow-x: auto; white-space: nowrap; }
   .spec-lifecycle { font-size: 0.72rem; gap: 4px; padding: 16px; }
   .spec-lifecycle .phase { padding: 4px 10px; font-size: 0.68rem; }
   .spec-supporting-card { padding: 18px 16px; }
@@ -511,19 +518,54 @@ footer a:hover { color: var(--glow); }
 
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
-  h1 { font-size: clamp(2.4rem, 10vw, 3.2rem); }
-  h2 { font-size: clamp(1.6rem, 5vw, 2rem); }
-  .hero { padding: 72px 0 40px; }
+  section { padding: 48px 0; }
+  h1 { font-size: clamp(2.2rem, 9vw, 3.2rem); }
+  h2 { font-size: clamp(1.5rem, 5vw, 2rem); }
+  h3 { font-size: 1.25rem; }
+
+  /* Banner: hide description text, keep DRAFT label and link */
+  .draft-banner { padding: 9px 16px; gap: 12px; flex-wrap: nowrap; }
+  .draft-banner span { display: none; }
+
+  /* Hero */
+  .hero { padding: 56px 0 32px; min-height: auto; }
+  .hero-eyebrow { font-size: 0.65rem; }
+  .hero-sub { font-size: 1rem; }
   .hero-cta { flex-direction: column; }
   .hero-cta .btn { width: 100%; justify-content: center; }
+
+  /* Metric cards */
+  .metric-card { padding: 20px 16px; }
+  .metric-name { font-size: 1.3rem; }
+
+  /* Insight */
+  .insight-box { padding: 20px 18px; }
+  .insight-box h3 { font-size: 1.25rem; }
+
+  /* Architecture: stack tag above description */
+  .arch-step { grid-template-columns: 1fr; gap: 6px; }
+  .arch-step .tag { text-align: left; justify-self: start; }
+  .arch-conn { margin-left: 0; height: 20px; }
+
+  /* Dimensions */
   .dimension-grid { grid-template-columns: 1fr; }
-  .arch-diagram { padding: 16px; }
-  .arch-layer .tag { font-size: 0.62rem; }
-  .arch-layer .desc { font-size: 0.72rem; }
+
+  /* Plugin cards */
+  .plugin-card { padding: 20px 16px; }
+
+  /* Spec */
   .spec-relationship-map { font-size: 0.5rem; padding: 12px 8px; }
-  .comparison table { min-width: 420px; }
+  .spec-nav button { font-size: 0.6rem; padding: 7px 8px; }
+
+  /* Comparison */
+  .comparison table { min-width: 380px; }
+
+  /* Lifecycle */
   .spec-lifecycle { flex-direction: column; align-items: stretch; text-align: center; }
   .spec-lifecycle .arrow { display: none; }
+
+  /* CTA */
+  .cta-section { padding: 56px 0; }
 }
 </style>
 </head>
